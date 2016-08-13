@@ -1,0 +1,30 @@
+
+
+
+Olá, bem vindo ao Dev-Ops do Super Bits Framework.
+
+Os scripts deste repositorio irão facilitar:
+
+Sincronização de código fonte em repositorios git.
+Configuração de estações de trabalho.
+Distribuição de aplicações em servidores 
+Distribuição de aplicações Release
+Colaboração 
+e oque mais conseguirmos realizar com Scripts.
+
+Ajude-nos a facilitar nosso trabalho, colabore, faça parte do projeto em:
+
+https://github.com/salviof/superBitsDevOps
+
+*SE você está começando agora, você pode executar um dos seguintes comandos
+
+Para configurar sua estação: 
+./home/superBits/superBitsDevOps/estacaoDeveloperOps/prepararEstacao.sh
+Para Instalar o netbeans e JDK 1.8:
+./home/superBits/superBitsDevOps/estacaoDeveloperOps/instalarApilicativos.sh
+
+Para iniciar o desenvolvimento execute:
+./home/superBits/projetos/criarProjeto.sh  
+
+Para saber mais sobre o Super-Bits FrameWork, acesse:
+https://github.com/salviof/SuperBits_FrameWork/wiki
