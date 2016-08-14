@@ -11,7 +11,8 @@ ARQ_CLIENTE_RELEASE="$CAMINHO_CLIENTE_RELEASE/cliente.info"
 ARQ_CLIENTE_SOURCE="$CAMINHO_CLIENTE_SOURCE/cliente.info"
 if [ ! -f "$ARQ_CLIENTE_SOURCE" ]; then
   # PASTA DO CLIENTE NÃO EXISTE
-echo "O arquivo inf do cliente ($ARQ_CLIENTE_SOURCE)não existe, você precisa INFORMAR O ENDEREÇO DO SERVIDOR GIT"
+echo "O arquivo inf do cliente ($ARQ_CLIENTE_SOURCE)não existe, você precisa "
+echo "INFORMAR O ENDEREÇO DO SERVIDOR GIT"
 echo "O sistema entende que o nome do projeto será o nome do repositório no git"
 echo "portanto o endereço NÃO deve constar o CAMINHO COMPLETO  ;)"
 read caminhoJiraSource

@@ -1,7 +1,7 @@
 #!/bin/bash
 # init
-$variaveisSB="/home/superBits/superBitsDevOps/SB_VARIAVEIS.sh"
-source /home/superBits/superBitsDevOps/SB_VARIAVEIS.sh
+$variaveisSB="/home/superBits/superBitsDevOps/VARIAVEIS/SB_VARIAVEIS.sh"
+source /home/superBits/superBitsDevOps/VARIAVEIS/SB_VARIAVEIS.sh
 
 echo "$caminhoFrameWork"
 echo "Bem Vindo ao sistema de Softwares Super-Bits"
@@ -25,7 +25,7 @@ echo "Voce pode alterar as variaveis deste Script em $variaveisSB "
 echo "não se acanhe em dar uma olhada nesses scripts, e pensar em como melhorar seu funcionamento e documentação"
 echo "TODOS OS SCRIPTS FORAM ESCRITOS PENSANDO EM DESENVOLVIMENTO COLABORATIVO"
 echo "para sair, digit ctr +c"
-echo "Preparando ambiente para mudar o mundo com open-source?"
+echo "Preparando ambiente para mudar o mundo com open-source? [ENTER]"
 pause
 #git config --global user.name "$nome"
 #git config --global user.email "$email"

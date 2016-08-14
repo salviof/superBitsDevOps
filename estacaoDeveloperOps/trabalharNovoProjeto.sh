@@ -9,13 +9,13 @@ projeto=$2
 # Verificando se o o Cliente e o Projeto foram enviados
 if [ $# -ne $ARGUMENTOS_ESPERADOS ]
 then
-  echo "Especifique o nome do cliente, e do projeto $0 "
+  echo "Especifique o nome do cliente, e do projeto $0 ;) "
   exit $E_BADARGS
 fi
 #carregando váriaveis básicas 
-source /home/superBits/superBitsDevOps/SB_VARIAVEIS.sh
+source /home/superBits/superBitsDevOps/VARIAVEIS/SB_VARIAVEIS.sh
 #carregando variaveis do projeto
-source /home/superBits/superBitsDevOps/SB_VARIAVEIS_PROJETO.sh
+source /home/superBits/superBitsDevOps/VARIAVEIS/SB_VARIAVEIS_PROJETO.sh
 
 echo "cliente = $cliente projeto = $projeto"
 echo "repositorio Source= $SERVIDOR_GIT_SOURCE"
@@ -27,3 +27,15 @@ mkdir  $CAMINHO_CLIENTE_SOURCE -p
 mkdir $CAMINHO_CLIENTE_RELEASE -p
 cd $CAMINHO_CLIENTE_SOURCE
 git clone $PROJETO_GIT_SOURCE
+cd $CAMINHO_PROJETO_SOURCE
+git submodule add https://github.com/salviof/devOpsProjeto.git
+git submodule init
+git submodule update
+./devOpsProjeto/criarComandosRaiz.sh
+cd $CAMINHO_PROJETO_RELEASE
+git submodule add https://github.com/salviof/devOpsProjeto.git
+git submodule init
+git submodule update
+./devOpsProjeto/criarComandosRaiz.sh
+
+

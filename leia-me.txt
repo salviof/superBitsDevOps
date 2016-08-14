@@ -19,12 +19,12 @@ https://github.com/salviof/superBitsDevOps
 *SE você está começando agora, você pode executar um dos seguintes comandos
 
 Para configurar sua estação: 
-./home/superBits/superBitsDevOps/estacaoDeveloperOps/prepararEstacao.sh
+/home/superBits/superBitsDevOps/estacaoDeveloperOps/prepararEstacao.sh
 Para Instalar o netbeans e JDK 1.8:
-./home/superBits/superBitsDevOps/estacaoDeveloperOps/instalarApilicativos.sh
+/home/superBits/superBitsDevOps/estacaoDeveloperOps/instalarApilicativos.sh
 
 Para iniciar o desenvolvimento execute:
-./home/superBits/projetos/criarProjeto.sh  
+/home/superBits/projetos/criarProjeto.sh  
 
 Para saber mais sobre o Super-Bits FrameWork, acesse:
 https://github.com/salviof/SuperBits_FrameWork/wiki

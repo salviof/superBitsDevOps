@@ -1,3 +1,3 @@
-[submodule "projetoOps"]
-	path = projetoOps
-	url = https://github.com/salviof/devOpsProjeto
+[submodule "devOpsProjeto"]
+	path = devOpsProjeto
+	url = https://github.com/salviof/devOpsProjeto.git
