@@ -32,24 +32,17 @@ echo "Executando ações posteriores em :"
 echo "$CAMINHO_PROJETO_SOURCE"
 
 
-git submodule add https://github.com/salviof/devOpsProjeto.git
-git submodule init
-git submodule update
 for pastaModulo in "${PASTAS_MODULO[@]}"
 do
 echo "criando atalho para $pastaModulo  "
-   ./devOpsProjeto/criarComandosRaiz.sh $pastaModulo   
+   ./devOpsProjeto/criarComandosRaiz.sh "$CAMINHO_PROJETO_SOURCE/$pastaModulo"   
 done
-
 echo "Executando ações posteriores em :"
 echo "$CAMINHO_PROJETO_RELEASE"
-cd $CAMINHO_PROJETO_RELEASE
-git submodule add https://github.com/salviof/devOpsProjeto.git
-git submodule init
-git submodule update
+
 cd $CAMINHO_PROJETO_RELEASE
 for pastaModulo in "${PASTAS_MODULO[@]}"
 do
-   ./devOpsProjeto/criarComandosRaiz.sh $pastaModulo   
+   /home/superBits/superBitsDevOps/devOpsProjeto/criarComandosRaiz.sh "$CAMINHO_PROJETO_SOURCE/$pastaModulo"
 done
 
