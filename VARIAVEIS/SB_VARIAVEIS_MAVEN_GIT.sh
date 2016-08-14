@@ -14,8 +14,10 @@ echo "Executando $COMANDO em $PASTA_PROJETO"
 declare -a PASTAS_MODULO=("modelRegras" "webApp" "Android" "ws" "ic")
 declare -a CAMINHOS_TODOS_PROJETOS=($PASTA_PROJETO)
 declare -a CAMINHOS_TUDO=("/home" "/home/superBits")
-declare -a CAMINHOS_MODEL=()
-declare -a CAMINHOS_EXECUCAO=($PASTA_PROJETO)
+declare -a CAMINHOS_FRAMEWORK=("/home" "$caminhoSBFW")
+declare -a CAMINHOS_MODEL=("modelRegra")
+#Criando array com camihos para execução e adicionando a pasta do projeto
+declare -a CAMINHOS_EXECUCAO=()
 
 if [[ "$COMANDO" == compila* ]] 
 then
@@ -80,6 +82,19 @@ for idx in "${!CAMINHOS_TODOS_PROJETOS[@]}"; do
 done
 fi
 
+
+
+#Adiciona os caminhos e seus respectivos Scripts que devem ser executados
+if [[ "$COMANDO" == *FrameWork.sh ]] 
+then
+for idx in "${!CAMINHOS_FRAMEWORK[@]}"; do
+    CAMINHOS_EXECUCAO+=(${CAMINHOS_MODEL[$idx]})
+done
+fi
+
+
+# ADICIONANDO A PASTA DO PROJETO (É UTULIZADA EM TODOS)
+ CAMINHOS_EXECUCAO+=($PASTA_PROJETO)
 
 
 
