@@ -1,0 +1,2 @@
+Sobrescreva  a pasta Template em
+no linux digite:~/netbeans/8.0.2/
