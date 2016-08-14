@@ -27,9 +27,9 @@ echo "TODOS OS SCRIPTS FORAM ESCRITOS PENSANDO EM DESENVOLVIMENTO COLABORATIVO"
 echo "para sair, digit ctr +c"
 echo "Preparando ambiente para mudar o mundo com open-source? [ENTER]"
 pause
-#git config --global user.name "$nome"
-#git config --global user.email "$email"
-#git config --global credential.helper store
+git config --global user.name "$nome"
+git config --global user.email "$email"
+git config --global credential.helper store
 echo "criando diretorio $caminhoSourceFJ"
 mkdir "$caminhoSourceSB" -p
 mkdir "$caminhoSourceFJ" -p
@@ -40,7 +40,7 @@ echo "SERVIDOR_GIT_SOURCE=https://github.com/salviof" > "$caminhoSourceFJ/client
 echo "SERVIDOR_GIT_RELEASE=https://github.com/salviof/NAO_IMPLEMENTADO" > $caminhoReleaseSB/cliente.info
 echo "SERVIDOR_GIT_RELEASE=https://github.com/salviof/NAO_IMPLEMENTADO" > $caminhoReleaseFJ/cliente.info
 cd "$caminhoSourceSB"
-#git clone "$urlRepositorioSBFW"
+git clone "$urlRepositorioSBFW"
 
 mkdir $PASTA_TRABALHO_USUARIO -p
 echo "TRABALHO_ATUAL="Tarefa não Especificada" > $ARQUIVO_TRABALHO_USUARIO
