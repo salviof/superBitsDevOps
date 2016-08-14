@@ -1,6 +1,16 @@
 function pause(){
    read -p "$*"
 }
+
+declare -a PASTAS_MODULO=("modelRegras" "webApp" "Android" "ws" "ic")
+
+echo "Os modulos Oficiais do Framework São:"
+for pastaModulo in "${PASTAS_MODULO[@]}"
+do
+   echo "$pastaModulo"   
+done
+
+
 urlRepositorioSBFW="https://github.com/salviof/SuperBits_FrameWork"
 caminhoHome="/home/superBits"
 caminhoSBFW="$camihoHome/projetos/Super_Bits/source/SuperBits_FrameWork"
