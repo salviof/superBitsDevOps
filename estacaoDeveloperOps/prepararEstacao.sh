@@ -1,5 +1,5 @@
 #!/bin/bash
-# init
+
 $variaveisSB="/home/superBits/superBitsDevOps/VARIAVEIS/SB_VARIAVEIS.sh"
 source /home/superBits/superBitsDevOps/VARIAVEIS/SB_VARIAVEIS.sh
 
@@ -41,6 +41,9 @@ echo "SERVIDOR_GIT_RELEASE=https://github.com/salviof/NAO_IMPLEMENTADO" > $camin
 echo "SERVIDOR_GIT_RELEASE=https://github.com/salviof/NAO_IMPLEMENTADO" > $caminhoReleaseFJ/cliente.info
 cd "$caminhoSourceSB"
 #git clone "$urlRepositorioSBFW"
+
+mkdir $PASTA_TRABALHO_USUARIO -p
+echo "TRABALHO_ATUAL="Tarefa não Especificada" > $ARQUIVO_TRABALHO_USUARIO
 cd "$caminhoSBFW/manualImport"
 ./instalaTema.sh
 ./instalaMysql.sh

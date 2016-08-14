@@ -1,6 +1,4 @@
-ok() 
-{ echo -e '\e[32m'$1'\e[m'; } 
-
+#!/bin/bash
 ARGUMENTOS_ESPERADOS=2
 
 cliente=$1

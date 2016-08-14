@@ -19,5 +19,7 @@ caminhoSourceSB="$caminhoProjetos/Super_Bits/source"
 caminhoSourceFJ="$caminhoProjetos/FaculdadeJava/source"
 caminhoReleaseSB="$caminhoProjetos/Super_Bits/release"
 caminhoReleaseFJ="$caminhoProjetos/FaculdadeJava/release"
+$PASTA_TRABALHO_USUARIO="/home/superBits/$user"
+$ARQUIVO_TRABALHO_USUARIO="$PASTA_TRABALHO_USUARIO/trabalhoAtual.info"
 
 
