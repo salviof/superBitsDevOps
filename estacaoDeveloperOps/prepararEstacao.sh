@@ -42,16 +42,27 @@ echo "SERVIDOR_GIT_RELEASE=https://github.com/salviof/NAO_IMPLEMENTADO" > $camin
 cd "$caminhoSourceSB"
 git clone "$urlRepositorioSBFW"
 
-mkdir $PASTA_TRABALHO_USUARIO -p
-echo "TRABALHO_ATUAL="Tarefa não Especificada" > $ARQUIVO_TRABALHO_USUARIO
-cd "$caminhoSBFW/manualImport"
-./instalaTema.sh
-./instalaMysql.sh
-cd "$caminhoSBFW/EditorImagem"
-./compilaProjeto.sh 
-cd "$caminhoSBFW"
-./compilaProjeto.sh 
+ssh-keygen
 
+
+
+mkdir $PASTA_TRABALHO_USUARIO -p
+echo "TRABALHO_ATUAL=\"Tarefa não Especificada\"" > $ARQUIVO_TRABALHO_USUARIO
+#cd "$caminhoSBFW/manualImport"
+#./instalaTema.sh
+#./instalaMysql.sh
+#cd "$caminhoSBFW/EditorImagem"
+#./compilaProjeto.sh 
+#cd $caminhoSBFW
+#./compilaProjeto.sh 
+
+if [ -f "~/.ssh/id_rsa.pub" ]
+then
+  echo "Parece que você ainda não tem uma chave publica de ssh :(.."
+echo   "Siga as instruções para criar uma e poder acessar servidores ssh "
+pause
+ssh-keygen
+fi
 
 
 

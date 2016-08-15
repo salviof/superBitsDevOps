@@ -1,9 +1,7 @@
 #!/bin/bash
 ARGUMENTOS_ESPERADOS=2
-
 cliente=$1
 projeto=$2
-
 # Verificando se o o Cliente e o Projeto foram enviados
 if [ $# -ne $ARGUMENTOS_ESPERADOS ]
 then
@@ -24,6 +22,11 @@ echo "caminho pasta release do Cliente $CAMINHO_CLIENTE_RELEASE"
 mkdir  $CAMINHO_CLIENTE_SOURCE -p
 mkdir $CAMINHO_CLIENTE_RELEASE -p
 
+echo "Criando repositorio Release em $CAMINHO_PROJETO_RELEASE" 
+cd $CAMINHO_CLIENTE_RELEASE
+echo "Clonando repositorio: $PROJETO_GIT_RELEASE"
+git clone $PROJETO_GIT_RELEASE
+
 
 cd $CAMINHO_CLIENTE_SOURCE
 git clone $PROJETO_GIT_SOURCE
@@ -35,14 +38,12 @@ echo "$CAMINHO_PROJETO_SOURCE"
 for pastaModulo in "${PASTAS_MODULO[@]}"
 do
 echo "criando atalho para $pastaModulo  "
-   ./devOpsProjeto/criarComandosRaiz.sh "$CAMINHO_PROJETO_SOURCE/$pastaModulo"   
+	mkdir  $CAMINHO_PROJETO_SOURCE/$pastaModulo -p
+   /home/superBits/superBitsDevOps/devOpsProjeto/criarComandosRaiz.sh "$CAMINHO_PROJETO_SOURCE/$pastaModulo"
 done
 echo "Executando ações posteriores em :"
 echo "$CAMINHO_PROJETO_RELEASE"
 
 cd $CAMINHO_PROJETO_RELEASE
-for pastaModulo in "${PASTAS_MODULO[@]}"
-do
-   /home/superBits/superBitsDevOps/devOpsProjeto/criarComandosRaiz.sh "$CAMINHO_PROJETO_SOURCE/$pastaModulo"
-done
+
 

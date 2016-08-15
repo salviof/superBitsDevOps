@@ -9,6 +9,7 @@ then
   echo "Especifique o nome caminho para pasta do projeto $0 ;) "
   exit $E_BADARGS
 fi
+source /home/superBits/superBitsDevOps/VARIAVEIS/SB_VARIAVEIS.sh
 echo "Executando $COMANDO em $PASTA_PROJETO"
 #ATENÇÃO VARIAVEL DUPLICADA EM SB_VARIAVEIS
 declare -a PASTAS_MODULO=("modelRegras" "webApp" "Android" "ws" "ic")
@@ -88,7 +89,7 @@ fi
 if [[ "$COMANDO" == *FrameWork.sh ]] 
 then
 for idx in "${!CAMINHOS_FRAMEWORK[@]}"; do
-    CAMINHOS_EXECUCAO+=(${CAMINHOS_MODEL[$idx]})
+    CAMINHOS_EXECUCAO+=(${CAMINHOS_FRAMEWORK[$idx]})
 done
 fi
 

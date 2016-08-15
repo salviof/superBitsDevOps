@@ -7,6 +7,9 @@ CAMINHO_PROJETO_SOURCE=$CAMINHO_CLIENTE_SOURCE/$projeto
 CAMINHO_PROJETO_RELEASE=$CAMINHO_CLIENTE_RELEASE/$projeto
 
 
+CAMINHO_MODEL_TARGET=$CAMINHO_CLIENTE_SOURCE/modelRegras/target
+CAMINHO_WEBAPP_TARGET=$CAMINHO_CLIENTE_SOURCE/webApp/target
+
 ARQ_CLIENTE_RELEASE="$CAMINHO_CLIENTE_RELEASE/cliente.info"
 ARQ_CLIENTE_SOURCE="$CAMINHO_CLIENTE_SOURCE/cliente.info"
 if [ ! -f "$ARQ_CLIENTE_SOURCE" ]; then
@@ -32,3 +35,12 @@ source $caminhoProjetos/$cliente/source/cliente.info
 source $caminhoProjetos/$cliente/release/cliente.info
 
 PROJETO_GIT_SOURCE=$SERVIDOR_GIT_SOURCE/$projeto
+PROJETO_GIT_RELEASE=$SERVIDOR_GIT_RELEASE/$projeto
+
+
+
+
+
+
+
+
