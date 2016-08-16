@@ -27,9 +27,9 @@ echo "TODOS OS SCRIPTS FORAM ESCRITOS PENSANDO EM DESENVOLVIMENTO COLABORATIVO"
 echo "para sair, digit ctr +c"
 echo "Preparando ambiente para mudar o mundo com open-source? [ENTER]"
 pause
-git config --global user.name "$nome"
-git config --global user.email "$email"
-git config --global credential.helper store
+#git config --global user.name "$nome"
+#git config --global user.email "$email"
+#git config --global credential.helper store
 echo "criando diretorio $caminhoSourceFJ"
 mkdir "$caminhoSourceSB" -p
 mkdir "$caminhoSourceFJ" -p
@@ -45,7 +45,6 @@ git clone "$urlRepositorioSBFW"
 ssh-keygen
 
 
-
 mkdir $PASTA_TRABALHO_USUARIO -p
 echo "TRABALHO_ATUAL=\"Tarefa não Especificada\"" > $ARQUIVO_TRABALHO_USUARIO
 #cd "$caminhoSBFW/manualImport"
@@ -55,13 +54,21 @@ echo "TRABALHO_ATUAL=\"Tarefa não Especificada\"" > $ARQUIVO_TRABALHO_USUARIO
 #./compilaProjeto.sh 
 #cd $caminhoSBFW
 #./compilaProjeto.sh 
+cd ~/.ssh
 
-if [ -f "~/.ssh/id_rsa.pub" ]
+if ls ~/.ssh/*pub >/dev/null
+        then
+	echo "Existe"
+       	 echo "Parece que você ainda não tem uma chave publica de ssh :(.."
+	echo   "Siga as instruções para criar uma e poder acessar servidores ssh "
+	pause
+	ssh-keygen
+fi
+
+
+if [ -e .ssh/id_rsa.pub ];
 then
-  echo "Parece que você ainda não tem uma chave publica de ssh :(.."
-echo   "Siga as instruções para criar uma e poder acessar servidores ssh "
-pause
-ssh-keygen
+ 
 fi
 
 

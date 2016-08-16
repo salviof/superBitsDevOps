@@ -3,13 +3,25 @@ ARGUMENTOS_ESPERADOS=2
 PASTA_PROJETO=$1
 COMANDO=$2
 echo "configurando variaveis para $PASTA_PROJETO"
-# Verificando se o o Cliente e o Projeto foram enviados
+# Verificando se a pasta e comando foram enviados
 if [ $# -ne $ARGUMENTOS_ESPERADOS ]
 then
   echo "Especifique o nome caminho para pasta do projeto $0 ;) "
   exit $E_BADARGS
 fi
 source /home/superBits/superBitsDevOps/VARIAVEIS/SB_VARIAVEIS.sh
+
+#Criando split para determinar cliente pasta release e source pasta do projeto
+IFS='/' read -ra SPLIT_CAMINHO_PROJETO <<< "$PASTA_PROJETO"   
+CLIENTE=${SPLIT_CAMINHO_PROJETO[4]};
+NOME_PROJETO=${SPLIT_CAMINHO_PROJETO[6]}
+CAMINHO_CLIENTE=/${SPLIT_CAMINHO_PROJETO[1]}/${SPLIT_CAMINHO_PROJETO[2]}/${SPLIT_CAMINHO_PROJETO[3]}/${SPLIT_CAMINHO_PROJETO[4]}
+
+echo "$NOME_PROJETO"
+CAMINHO_CLIENTE_SOURCE=$CAMINHO_CLIENTE/source
+CAMINHO_RELEASE=$CAMINHO_CLIENTE/release #Depreciado, subistituir pelo abaixo
+CAMINHO_CLIENTE_RELEASE=$CAMINHO_CLIENTE/release 
+
 echo "Executando $COMANDO em $PASTA_PROJETO"
 #ATENÇÃO VARIAVEL DUPLICADA EM SB_VARIAVEIS
 declare -a PASTAS_MODULO=("modelRegras" "webApp" "Android" "ws" "ic")
