@@ -26,4 +26,5 @@ else
 mkdir $CAMINHO_REPOSITORIO_PROJETO_SOURCE -p
 cd $CAMINHO_REPOSITORIO_PROJETO_SOURCE
 git init --bare	 
+echo "A pasta do repositorio foi criada com sucesso em  $CAMINHO_REPOSITORIO_PROJETO_SOURCE"
 fi
