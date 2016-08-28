@@ -21,7 +21,9 @@ source /home/git/superBitsDevOps/SCRIPTS_SERVIDOR/VARIAVEIS_SERVIDOR.sh $NOME_PA
 
 if [ -d "$CAMINHO_REPOSITORIO_PROJETO_RELEASE" ]
 then
-    echo "sim"
+    echo "A pasta do repositório já existe, ignorando criação de repositorio"
 else
-    echo "não"
+mkdir $CAMINHO_REPOSITORIO_PROJETO_RELEASE -p
+cd $CAMINHO_REPOSITORIO_PROJETO_RELEASE
+git init --bare	 
 fi
