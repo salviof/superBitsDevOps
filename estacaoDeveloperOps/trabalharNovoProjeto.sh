@@ -30,6 +30,11 @@ git clone $PROJETO_GIT_RELEASE
 
 cd $CAMINHO_CLIENTE_SOURCE
 git clone $PROJETO_GIT_SOURCE
+
+
+if [ -d "$CAMINHO_PROJETO_SOURCE" ]
+then
+
 cd $CAMINHO_PROJETO_SOURCE
 echo "Executando ações posteriores em :"
 echo "$CAMINHO_PROJETO_SOURCE"
@@ -45,5 +50,9 @@ echo "Executando ações posteriores em :"
 echo "$CAMINHO_PROJETO_RELEASE"
 
 cd $CAMINHO_PROJETO_RELEASE
+
+
+fi
+
 
 
