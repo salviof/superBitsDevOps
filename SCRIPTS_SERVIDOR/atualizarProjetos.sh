@@ -9,8 +9,8 @@ done < <(ls ~/gitServer/release/)
 cd /home
 for proj in "${projetos[@]}"
 do :
-
-nomeProjeto=$(echo $proj | sed -e 's/^.git//')
+nomeProjeto=$(echo $proj | sed -e 's/.git//')
+echo "ATUALIZANDO PROJETO: nomeProjeto"
 # Faz um Git clone do repositorio na pasta publicados
 mkdir ~/publicados/ -p
 cd ~/publicados
