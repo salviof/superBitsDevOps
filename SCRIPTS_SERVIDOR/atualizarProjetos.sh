@@ -10,7 +10,7 @@ cd /home
 for proj in "${projetos[@]}"
 do :
 
-nomeProjeto=$(echo $chave_url | sed -e 's/^.git//')
+nomeProjeto=$(echo $proj | sed -e 's/^.git//')
 # Faz um Git clone do repositorio na pasta publicados
 mkdir ~/publicados/ -p
 cd ~/publicados
