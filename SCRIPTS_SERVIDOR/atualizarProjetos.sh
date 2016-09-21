@@ -12,13 +12,12 @@ do :
 # Faz um Git clone do repositorio na pasta publicados
 mkdir ~/publicados/ -p
 cd ~/publicados
-git clone ~/projetos/$proj
-cd ~/projetos/$proj
+git clone ~/gitServer/release/$proj
+cd ~/publicados/$proj
 git pull orign master
 
 #Lê as informacoes do cliente (contendo o endereço do site que será homologado)
 source ~/publicados/$proj/cliente.info
-
 source ~/publicados/$proj/$proj.info
 
 echo " Atualizando  $SERVIDOR_HOMOLOGACAO"
