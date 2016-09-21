@@ -10,7 +10,7 @@ cd /home
 for proj in "${projetos[@]}"
 do :
 nomeProjeto=$(echo $proj | sed -e 's/.git//')
-echo "ATUALIZANDO PROJETO: nomeProjeto"
+echo "ATUALIZANDO PROJETO: $nomeProjeto"
 # Faz um Git clone do repositorio na pasta publicados
 mkdir ~/publicados/ -p
 cd ~/publicados
@@ -18,7 +18,7 @@ git clone ~/gitServer/release/$proj
 
 
 cd ~/publicados/$nomeProjeto
-git pull orign master
+git pull
 
 #Lê as informacoes do cliente (contendo o endereço do site que será homologado)
 source ~/publicados/$nomeProjeto/cliente.info
