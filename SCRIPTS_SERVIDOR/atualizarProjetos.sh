@@ -27,7 +27,7 @@ source ~/publicados/$nomeProjeto/$nomeProjeto.info
 echo " Atualizando  $SERVIDOR_HOMOLOGACAO"
 echo " e  $SERVIDOR_REQUISITOS"
 
-if [ "$SERVIDOR_HOMOLOGACAO" -ne "null" ] then
+if [ "$SERVIDOR_HOMOLOGACAO" != "null" ] then
 
 arqProjRequisito="$nomeProjeto.req.xml"
 # Adiciona o contecto no Jetty	
@@ -41,7 +41,7 @@ echo "       <Item>$SERVIDOR_HOMOLOGACAO</Item>  " >>  ~/servidor/jetty9/webapps
 echo "     </Array>  " >>  ~/servidor/jetty9/webapps/$nomeProjeto.xml
 echo "   </Set> " >>  ~/servidor/jetty9/webapps/$nomeProjeto.xml
 echo " </Configure> " >>  ~/servidor/jetty9/webapps/$nomeProjeto.xml
-if [ "$SERVIDOR_REQUISITOS" -ne "null" ] then
+if [ "$SERVIDOR_REQUISITOS" != "null"] then
 echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?> "> ~/servidor/jetty9/webapps/$arqProjRequisito
 echo " <Configure class=\"org.eclipse.jetty.webapp.WebAppContext\"> " >>  ~/servidor/jetty9/webapps/$arqProjRequisito
 echo "   <Set name=\"contextPath\">/</Set> " >>  ~/servidor/jetty9/webapps/$arqProjRequisito
