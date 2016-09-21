@@ -6,6 +6,11 @@ do
     projetos[ $idx ]="$linha"        
     (( idx++ ))
 done < <(ls ~/gitServer/release/)
+
+cd ~/servidor/jetty9/webapps/
+rm *.xml
+
+
 cd /home
 for proj in "${projetos[@]}"
 do :
