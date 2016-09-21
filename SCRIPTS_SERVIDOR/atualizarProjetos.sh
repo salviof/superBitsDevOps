@@ -40,7 +40,7 @@ arqProjRequisito="$nomeProjeto.req.xml"
 echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?> "> ~/servidor/jetty9/webapps/$nomeProjeto.xml
 echo " <Configure class=\"org.eclipse.jetty.webapp.WebAppContext\"> " >>  ~/servidor/jetty9/webapps/$nomeProjeto.xml
 echo "   <Set name=\"contextPath\">/</Set> " >>  ~/servidor/jetty9/webapps/$nomeProjeto.xml
-echo "   <Set name=\"war\">/home/git/publicados/$proj/$proj.war</Set> " >>  ~/servidor/jetty9/webapps/$nomeProjeto.xml
+echo "   <Set name=\"war\">/home/git/publicados/$nomeProjeto/$nomeProjeto.war</Set> " >>  ~/servidor/jetty9/webapps/$nomeProjeto.xml
 echo "   <Set name=\"virtualHosts\">            " >>  ~/servidor/jetty9/webapps/$nomeProjeto.xml
 echo "     <Array type=\"java.lang.String\">    " >>  ~/servidor/jetty9/webapps/$nomeProjeto.xml
 echo "       <Item>$SERVIDOR_HOMOLOGACAO</Item>  " >>  ~/servidor/jetty9/webapps/$nomeProjeto.xml
@@ -52,7 +52,7 @@ then
 echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?> "> ~/servidor/jetty9/webapps/$arqProjRequisito
 echo " <Configure class=\"org.eclipse.jetty.webapp.WebAppContext\"> " >>  ~/servidor/jetty9/webapps/$arqProjRequisito
 echo "   <Set name=\"contextPath\">/</Set> " >>  ~/servidor/jetty9/webapps/$arqProjRequisito
-echo "   <Set name=\"war\">/home/git/publicados/$proj/$proj.req.war</Set> " >>  ~/servidor/jetty9/webapps/$arqProjRequisito
+echo "   <Set name=\"war\">/home/git/publicados/$nomeProjeto/$nomeProjeto.req.war</Set> " >>  ~/servidor/jetty9/webapps/$arqProjRequisito
 echo "   <Set name=\"virtualHosts\">            " >>  ~/servidor/jetty9/webapps/$arqProjRequisito
 echo "     <Array type=\"java.lang.String\">    " >>  ~/servidor/jetty9/webapps/$arqProjRequisito
 echo "       <Item>$SERVIDOR_REQUISITOS</Item>  " >>  ~/servidor/jetty9/webapps/$arqProjRequisito
