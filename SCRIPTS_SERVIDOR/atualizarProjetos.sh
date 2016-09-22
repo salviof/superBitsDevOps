@@ -50,7 +50,7 @@ echo " </Configure> " >>  ~/servidor/jetty9/webapps/$nomeProjeto.xml
 echo "Atualizando $SERVIDOR_REQUISITOS -- $arqProjRequisito"
 fi
 
-if [$SERVIDOR_REQUISITOS != "null"]; 
+if [ $SERVIDOR_REQUISITOS != "null" ];
 then
 echo "servidor de requisito nao e nulo"
 echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?> "> ~/servidor/jetty9/webapps/$arqProjRequisito

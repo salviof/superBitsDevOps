@@ -15,3 +15,9 @@ echo "nao é nulo"
 fi
 
 
+if [ $teste != "null" ];
+ then
+echo "nao é nulo"
+fi
+
+
