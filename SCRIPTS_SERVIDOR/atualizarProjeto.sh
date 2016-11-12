@@ -20,7 +20,7 @@ if [ -d "~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR" ]
 then
   echo "O repositorio Relase do projeto não foi encontrado $0 ;) "
   exit $E_BADARGS
-else
+fi
 
 cd ~/publicados
 git clone ~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR
@@ -47,7 +47,7 @@ source ~/publicados/$NOME_PROJETO/SBProjeto.prop
 echo " Atualizando  $ENDERECO_WEB_REQUISITO"
 echo " e  $SERVIDOR_REQUISITOS"
 
-arqProjRequisito="$proj.req.xml"
+
 # Adiciona o contecto no Jetty	
 echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?> "> ~/servidor/jetty9/webapps/$NOME_PROJETO.xml
 echo " <Configure class=\"org.eclipse.jetty.webapp.WebAppContext\"> " >>  ~/servidor/jetty9/webapps/$NOME_PROJETO.xml
