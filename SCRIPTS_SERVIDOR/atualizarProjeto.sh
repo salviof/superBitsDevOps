@@ -18,7 +18,7 @@ fi
 
 if [ ! -d "~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR" ]
 then
-  echo "O repositorio Relase do projeto não foi encontrado $0 ;) "
+  echo "O repositorio Relase do projeto não foi encontrado EM ~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR  $0  "
   exit $E_BADARGS
 fi
 
