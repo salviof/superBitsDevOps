@@ -29,7 +29,7 @@ fi
 cd ~/publicados
 git clone ~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR
 
-cd ~/gitServer/release/$NOME_PROJETO
+cd ~/publicados/$NOME_PROJETO
 git pull orign master
 git add --all 
 git commit -m 'comit reverso alteraçoes pasta servidor'
