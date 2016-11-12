@@ -1,6 +1,6 @@
 
 
-#Para cada pasta do servidor de git, projetos 
+#Para cada pasta do servidor de git, projetos adiciona uma string no array projetos
 while read linha
 do
     projetos[ $idx ]="$linha"        
@@ -32,41 +32,7 @@ source ~/publicados/$nomeProjeto/$nomeProjeto.info
 echo " Atualizando  $SERVIDOR_HOMOLOGACAO"
 echo " e  $SERVIDOR_REQUISITOS"
 
-if [ $SERVIDOR_HOMOLOGACAO != "null" ];
- then
-
-arqProjRequisito="$nomeProjeto.req.xml"
-# Adiciona o contecto no Jetty	
-echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?> "> ~/servidor/jetty9/webapps/$nomeProjeto.xml
-echo " <Configure class=\"org.eclipse.jetty.webapp.WebAppContext\"> " >>  ~/servidor/jetty9/webapps/$nomeProjeto.xml
-echo "   <Set name=\"contextPath\">/</Set> " >>  ~/servidor/jetty9/webapps/$nomeProjeto.xml
-echo "   <Set name=\"war\">/home/git/publicados/$nomeProjeto/$nomeProjeto.war</Set> " >>  ~/servidor/jetty9/webapps/$nomeProjeto.xml
-echo "   <Set name=\"virtualHosts\">            " >>  ~/servidor/jetty9/webapps/$nomeProjeto.xml
-echo "     <Array type=\"java.lang.String\">    " >>  ~/servidor/jetty9/webapps/$nomeProjeto.xml
-echo "       <Item>$SERVIDOR_HOMOLOGACAO</Item>  " >>  ~/servidor/jetty9/webapps/$nomeProjeto.xml
-echo "     </Array>  " >>  ~/servidor/jetty9/webapps/$nomeProjeto.xml
-echo "   </Set> " >>  ~/servidor/jetty9/webapps/$nomeProjeto.xml
-echo " </Configure> " >>  ~/servidor/jetty9/webapps/$nomeProjeto.xml
-echo "Atualizando $SERVIDOR_REQUISITOS -- $arqProjRequisito"
-fi
-
-if [ $SERVIDOR_REQUISITOS != "null" ];
-then
-echo "servidor de requisito nao e nulo"
-echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?> "> ~/servidor/jetty9/webapps/$arqProjRequisito
-echo " <Configure class=\"org.eclipse.jetty.webapp.WebAppContext\"> " >>  ~/servidor/jetty9/webapps/$arqProjRequisito
-echo "   <Set name=\"contextPath\">/</Set> " >>  ~/servidor/jetty9/webapps/$arqProjRequisito
-echo "   <Set name=\"war\">/home/git/publicados/$nomeProjeto/$nomeProjeto.req.war</Set> " >>  ~/servidor/jetty9/webapps/$arqProjRequisito
-echo "   <Set name=\"virtualHosts\">            " >>  ~/servidor/jetty9/webapps/$arqProjRequisito
-echo "     <Array type=\"java.lang.String\">    " >>  ~/servidor/jetty9/webapps/$arqProjRequisito
-echo "       <Item>$SERVIDOR_REQUISITOS</Item>  " >>  ~/servidor/jetty9/webapps/$arqProjRequisito
-echo "     </Array>  " >>  ~/servidor/jetty9/webapps/$arqProjRequisito
-echo "   </Set> " >>  ~/servidor/jetty9/webapps/$arqProjRequisito
-echo " </Configure> " >>  ~/servidor/jetty9/webapps/$arqProjRequisito
-fi
-
-
-done
+source ~/superBitsDevOps/SCRIPTS_SERVIDOR/atualizarProjeto.sh $nomeProjeto
 
 
 # Dropa o banco superCompras (comando temporario)
