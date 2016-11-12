@@ -16,11 +16,14 @@ fi
 #Verificando se relase do projeto existe
 
 
-if [ -d "~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR" ]
+if [ ! -d "~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR" ]
 then
   echo "O repositorio Relase do projeto não foi encontrado $0 ;) "
   exit $E_BADARGS
 fi
+
+
+
 
 cd ~/publicados
 git clone ~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR
