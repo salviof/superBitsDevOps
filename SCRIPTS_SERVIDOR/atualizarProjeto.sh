@@ -16,7 +16,8 @@ fi
 #Verificando se relase do projeto existe
 
 
-if [ ! -d "~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR" ]
+CAMINHO_PASTA_SERVIDOR=~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR
+if [ ! -d "$CAMINHO_PASTA_SERVIDOR" ]
 then
   echo "O repositorio Relase do projeto não foi encontrado EM ~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR  $0  "
   exit $E_BADARGS
