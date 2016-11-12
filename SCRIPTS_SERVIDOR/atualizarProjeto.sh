@@ -72,9 +72,4 @@ echo "       <Item>$ENDERECO_WEB_REQUISITO</Item>  " >>  ~/servidor/jetty9/webap
 echo "     </Array>  " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
 echo "   </Set> " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
 echo " </Configure> " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
-done
-
-
-
-
 
