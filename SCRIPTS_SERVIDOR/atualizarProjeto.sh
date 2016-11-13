@@ -31,13 +31,6 @@ git clone ~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR
 
 cd ~/publicados/$NOME_PROJETO
 git pull orign master
-git add --all 
-git commit -m 'comit reverso alteraçoes pasta servidor'
-git push
-git pull orign master
-git add --all 
-git commit -m 'comit reverso alteraçoes pasta servidor'
-git push
 git pull orign master
 
 
