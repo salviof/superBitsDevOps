@@ -32,6 +32,7 @@ git clone ~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR
 cd ~/publicados/$NOME_PROJETO
 git pull orign master
 git pull orign master
+git pull
 
 
 #Lê as informacoes do cliente (contendo o endereço do site que será homologado)
