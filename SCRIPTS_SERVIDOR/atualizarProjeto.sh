@@ -70,3 +70,6 @@ echo "     </Array>  " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
 echo "   </Set> " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
 echo " </Configure> " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
 
+
+read -p "Este script irá atualizar o projeto $NOME_PROJETO WebApp e os Requisitos deste projeto, tecle enter para continuar e ctr c para cancelar..."
+
