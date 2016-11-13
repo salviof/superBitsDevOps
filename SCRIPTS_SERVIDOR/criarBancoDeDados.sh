@@ -31,12 +31,15 @@ source ~/publicados/$NOME_PROJETO/cliente.info
 #NOVO
 source ~/publicados/$NOME_PROJETO/SBProjeto.prop
 
+echo "Apagando $NOME_BANCO"
+
 echo " Atualizando  $ENDERECO_WEB_REQUISITO"
 echo " e  $SERVIDOR_REQUISITOS"
 mysqladmin processlist -u root $NOME_BANCO | \
 awk '$2 ~ /^[0-9]/ {print "KILL "$2";"}' | \
 
 mysqladmin -u root drop $NOME_BANCO
+echo "criando $NOME_BANCO"
 mysqladmin -u root create $NOME_BANCO
 
 mysqk -u root  $NOME_BANCO < ./bancoHomologacao.sql
