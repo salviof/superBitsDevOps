@@ -30,6 +30,7 @@ source ~/publicados/$NOME_PROJETO/cliente.info
 #Lê as informacoes do cliente (contendo o endereço do site que será homologado)
 #NOVO
 source ~/publicados/$NOME_PROJETO/SBProjeto.prop
+NOME_PROJETO=$1
 
 echo "Apagando $NOME_BANCO"
 

@@ -49,7 +49,7 @@ echo " e  $SERVIDOR_REQUISITOS"
 echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?> "> ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml
 echo " <Configure class=\"org.eclipse.jetty.webapp.WebAppContext\"> " >>  ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml
 echo "   <Set name=\"contextPath\">/</Set> " >>  ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml
-echo "   <Set name=\"war\">/home/git/publicados/$NOME_PROJETO/$GRUPO_PROJETO.war</Set> " >>  ~/servidor/jetty9/webapps/$NOME_PROJETO.xml
+echo "   <Set name=\"war\">/home/git/publicados/$GRUPO_PROJETO/$GRUPO_PROJETO.war</Set> " >>  ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml
 echo "   <Set name=\"virtualHosts\">            " >>  ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml
 echo "     <Array type=\"java.lang.String\">    " >>  ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml
 echo "       <Item>$ENDERECO_WEB</Item>  " >>  ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml
