@@ -44,6 +44,7 @@ source ~/publicados/$NOME_PROJETO/SBProjeto.prop
 echo " Atualizando  $ENDERECO_WEB_REQUISITO"
 echo " e  $SERVIDOR_REQUISITOS"
 
+rm ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml -f
 
 # Adiciona o contecto no Jetty	
 echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?> "> ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml
@@ -57,7 +58,11 @@ echo "     </Array>  " >>  ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml
 echo "   </Set> " >>  ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml
 echo " </Configure> " >>  ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml
 
+
+
 ARQ_PROJ_REQUISITO=$GRUPO_PROJETO.req.xml
+
+rm ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO -f
 
 echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?> "> ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
 echo " <Configure class=\"org.eclipse.jetty.webapp.WebAppContext\"> " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
