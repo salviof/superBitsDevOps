@@ -59,8 +59,7 @@ git config --global --unset section.key
 
 if ls ~/.ssh/*pub >/dev/null
         then
-	echo "Existe"
-       	 echo "Parece que você ainda não tem uma chave publica de ssh :(.."
+       	echo "Parece que você ainda não tem uma chave publica de ssh :(.."
 	echo   "Siga as instruções para criar uma e poder acessar servidores ssh "
 	pause
 	ssh-keygen
@@ -72,9 +71,7 @@ then
  
 fi
 
-
-
-
+mkdir $caminhoHome -f
 
 
 
