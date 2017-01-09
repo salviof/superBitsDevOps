@@ -1,5 +1,4 @@
 ARGUMENTOS_ESPERADOS=2
-
 PASTA_PROJETO=$1
 COMANDO=$2
 echo "configurando variaveis para $PASTA_PROJETO"
