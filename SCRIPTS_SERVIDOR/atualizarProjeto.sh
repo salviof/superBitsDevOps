@@ -1,8 +1,11 @@
 
 
-ARGUMENTOS_ESPERADOS=1
+ARGUMENTOS_ESPERADOS=2
 NOME_PASTA_REPOSITORIO_SERVIDOR=$1.git
 NOME_PROJETO=$1
+prATUALIZAR_REQUISITO=$2
+
+
 
 
 echo "nome pasta Projeto====$NOME_PASTA_REPOSITORIO_SERVIDOR"
@@ -14,7 +17,11 @@ then
 fi
 
 #Verificando se relase do projeto existe
-
+ATUALIZAR_REQUISITO=false
+if [[ $prATUALIZAR_REQUISITO == *"SIM"* ]]
+then
+ATUALIZAR_REQUISITO=true
+fi
 
 CAMINHO_PASTA_SERVIDOR=~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR
 if [ ! -d "$CAMINHO_PASTA_SERVIDOR" ]
@@ -59,7 +66,7 @@ echo "   </Set> " >>  ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml
 echo " </Configure> " >>  ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml
 
 
-
+if $ATUALIZAR_REQUISITO ; then
 ARQ_PROJ_REQUISITO=$GRUPO_PROJETO.req.xml
 
 rm ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO -f
@@ -74,5 +81,5 @@ echo "       <Item>$ENDERECO_WEB_REQUISITO</Item>  " >>  ~/servidor/jetty9/webap
 echo "     </Array>  " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
 echo "   </Set> " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
 echo " </Configure> " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
-
+fi
 
