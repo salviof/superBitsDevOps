@@ -42,5 +42,7 @@ mysqladmin -u root drop $NOME_BANCO -f
 echo "criando $NOME_BANCO"
 mysqladmin -u root create $NOME_BANCO -f
 
-mysql -u root  $NOME_BANCO < ./bancoHomologacao.sql
+echo "restaurando banco atraves de: $NOME_BANCO.Homologacao.sql"
+
+mysql -u root  $NOME_BANCO < ./$NOME_BANCO.Homologacao.sql
 
