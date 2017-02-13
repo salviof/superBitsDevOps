@@ -1,12 +1,9 @@
-
-
-ARGUMENTOS_ESPERADOS=2
+ARGUMENTOS_ESPERADOS=3
 NOME_PASTA_REPOSITORIO_SERVIDOR=$1.git
 NOME_PROJETO=$1
 prATUALIZAR_REQUISITO=$2
-
-
-
+prRespostaLimpar=$3
+source ~/superBitsDevOps/core/coreSBBash.sh
 
 echo "nome pasta Projeto====$NOME_PASTA_REPOSITORIO_SERVIDOR"
 # Verificando se o o Cliente e o Projeto foram enviados
@@ -33,13 +30,109 @@ fi
 
 
 
+if [ $prRespostaLimpar == "SIM" ]
+then
+
+# CRIAR BACKUP DO PROEJTO
+alerta "Criando diretorio do projeto em: ~/backup/$NOME_PROJETO "
+mkdir -p ~/backup/$NOME_PROJETO
+alerta "Carregando source coreSBBash"
+source ~/superBitsDevOps/core/coreSBBash.sh
+
+ #SCRIPT DE BACKUP FULL REALIZADO DO FILESERVER  
+ 
+ alerta "Definindo variaveis de BACKUP"
+ #VARIAVEIS  
+ INICIO=`date +%d/%m/%Y-%H:%M:%S`  
+ LOG=~/backup/$NOME_PROJETO/$NOME_PROJETO_`date +%Y-%m-%d`_log-backup-full.txt
+   
+ alerta "Buscando origem do UltimoBackup" 
+ #DEFINA AQUI O DIRETÓRIO QUE SERÁ EFETUADO O BACKUP DO BACKUP
+ ORIGEM=~/backup/$NOME_PROJETO/ultimoBackup_$NOME_PROJETO.tar.gz
+ 
+ alerta "Definindo destino do PenultimoBackup" 
+ #DEFINA AQUI O DIRETÓRIO ONDE O ARQUIVO SERÁ GRAVADO JUNTO COM O SEU NOME  
+ DESTINO=~/backup/$NOME_PROJETO/penultimoBackup_$NOME_PROJETO.tar.gz
+   
+ #CRIA O ARQUIVO DE LOGS  
+ echo " " >> $LOG  
+ echo " " >> $LOG  
+ echo "|-----------------------------------------------" >> $LOG  
+ echo " Backup iniciado em $INICIO" >> $LOG  
+ 
+ alerta "Verificando se o arquivo existe"
+ if [ -f "$ORIGEM" ]
+  then
+  alerta "Copiando UltimoBackup para PenultimoBackup"
+  
+  alerta "De: $ORIGEM --- Para: $DESTINO"
+
+ #COPIA ULTIMO BACKUP PARA CRIAR NOVO
+ cp $ORIGEM $DESTINO -r -f
+ 
+ else
+ 
+ alerta "Não existe Backup para ser arquivado!"
+ 
+ fi
+ 
+ alerta "Buscando diretorio para BACKUP"
+ #DEFINA AQUI O DIRETÓRIO QUE SERÁ EFETUADO O NOVO BACKUP
+ ORIGEM=~/publicados/$NOME_PROJETO/*
+ 
+ alerta "Definindo destino do BACKUP"
+ #DEFINA AQUI O DIRETÓRIO ONDE O ARQUIVO SERÁ GRAVADO JUNTO COM O SEU NOME  
+ DESTINO=~/backup/$NOME_PROJETO/ultimoBackup_$NOME_PROJETO.tar.gz
+ 
+ 
+ alerta "Iniciando Backup" 
+ 
+ alerta "De: $ORIGEM --- Para: $DESTINO"
+ 
+ #CRIA O BACKUP  
+ alerta "Iniciando BACKUP"
+ tar cvf $DESTINO $ORIGEM >> $LOG
+ alerta "Fim do BACKUP"
+ 
+ FINAL=`date +%d/%m/%Y-%H:%M:%S`  
+   
+ echo " Backup finalizado em $FINAL" >> $LOG  
+ echo "|-----------------------------------------------" >> $LOG  
+ echo " " >> $LOG  
+ echo " " >> $LOG  
+ 
+ alerta "Um LOG do Backup foi criando: $LOG"
+   
+
+# APAGAR PASTA DO PROJETO
+
+alerta "Verificando se o nome do projeto foi informado"
+
+if [ ${#NOME_PROJETO} == 0 ]
+then
+  exit
+fi  
+  
+alerta "Verificando se diretorio existe"  
+arqSairSePastaNaoExistir ./publicados/$NOME_PROJETO "O Diretorio informado não existe!"
+
+alerta "Apagando diretorio: /~/publicados/$NOME_PROJETO"
+rm ~/publicados/$NOME_PROJETO -r -f
+
+
+# CRIAR PASTA DO PROJETO
+
 cd ~/publicados
+
+alerta "Iniciando clonagem do projeto no servidor"
 git clone ~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR
+alerta "Fim do processod e clonagem"
+#cd ~/publicados/$NOME_PROJETO
 
-cd ~/publicados/$NOME_PROJETO
+#git pull
 
-git pull
-
+#FIM DO SCRIPT DE BACKUP
+fi
 
 #Lê as informacoes do cliente (contendo o endereço do site que será homologado)
 # (OLD)para compatibilidade
