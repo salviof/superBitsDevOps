@@ -128,6 +128,21 @@ pMensagem=$2
    exit 
   fi
 }
+
+arqSairSeArquivoExistir(){
+pDiretorio=$1
+pMensagem=$2
+ if [ -f "$pDiretorio" ]
+  then
+   alerta "$pMensagem"
+   exit  
+  else
+  return 1 
+   
+  fi
+
+}
+
 arqSairSePastaNaoExistir(){
 pDiretorio=$1
 pMensagem=$2
