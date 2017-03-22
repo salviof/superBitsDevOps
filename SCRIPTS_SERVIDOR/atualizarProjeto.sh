@@ -9,7 +9,7 @@ echo "nome pasta Projeto====$NOME_PASTA_REPOSITORIO_SERVIDOR"
 # Verificando se o o Cliente e o Projeto foram enviados
 if [ $# -ne $ARGUMENTOS_ESPERADOS ]
 then
-  echo "O parametro nome do projeto não foi enviado $0 ;) "
+  echo "O parametro nome do projeto não foi enviado impossível executar o atualizarProjeto.sh $0 ;) "
   exit $E_BADARGS
 fi
 
