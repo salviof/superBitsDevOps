@@ -75,7 +75,4 @@ if ! ls /home/$SUDO_USER/.ssh/*pub
 fi
 
 
-mkdir $caminhoHome
-
-
 
