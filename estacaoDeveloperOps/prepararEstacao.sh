@@ -42,8 +42,6 @@ echo "SERVIDOR_GIT_RELEASE=https://github.com/salviof/NAO_IMPLEMENTADO" > $camin
 cd "$caminhoSourceSB"
 git clone "$urlRepositorioSBFW"
 
-ssh-keygen
-
 
 mkdir $PASTA_TRABALHO_USUARIO -p
 echo "TRABALHO_ATUAL=\"Tarefa não Especificada\"" > $ARQUIVO_TRABALHO_USUARIO
@@ -54,24 +52,30 @@ echo "TRABALHO_ATUAL=\"Tarefa não Especificada\"" > $ARQUIVO_TRABALHO_USUARIO
 #./compilaProjeto.sh 
 #cd $caminhoSBFW
 #./compilaProjeto.sh 
-cd ~/.ssh
-git config --global --unset section.key
 
-if ls ~/.ssh/*pub >/dev/null
+echo " ****** VERIFICANDO SSH ****** "
+
+echo "CAMINHO QUE SERÁ VERIFICADO " /home/$SUDO_USER/.ssh/*pub
+read
+
+if ! ls /home/$SUDO_USER/.ssh/*pub
         then
        	echo "Parece que você ainda não tem uma chave publica de ssh :(.."
 	echo   "Siga as instruções para criar uma e poder acessar servidores ssh "
 	pause
-	ssh-keygen
+	echo " ****** VERIFICANDO SSH CD ****** "
+	sudo -H -u $SUDO_USER bash -c ssh-keygen
+	read
+	cd /home/$SUDO_USER/.ssh
+	read
+	
+	echo " ****** VERIFICANDO APOS GERAR KEY ****** "
+	git config --global --unset section.key
+	echo " ****** VERIFICANDO SSH APOS CONFIGURAR KEYGIT****** "
 fi
 
 
-if [ -e .ssh/id_rsa.pub ];
-then
- 
-fi
-
-mkdir $caminhoHome -f
+mkdir $caminhoHome
 
 
 
