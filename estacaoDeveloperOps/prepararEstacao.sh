@@ -1,6 +1,6 @@
 #!/bin/bash
 
-$variaveisSB="/home/superBits/superBitsDevOps/VARIAVEIS/SB_VARIAVEIS.sh"
+variaveisSB=/home/superBits/superBitsDevOps/VARIAVEIS/SB_VARIAVEIS.sh
 source /home/superBits/superBitsDevOps/VARIAVEIS/SB_VARIAVEIS.sh
 
 echo "$caminhoFrameWork"
