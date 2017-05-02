@@ -29,7 +29,7 @@ sudo alternatives --config jar
 echo " CONFIGURANDO JAVA_HOME "
 
 echo "export JAVA_HOME=/usr/java/lastest" >> ~/.bash_profile
-export JAVA_HOME=/usr/java/lastest     
+export JAVA_HOME=/usr/java/latest     
 
 echo "ATENÇÃO "
 echo "precione enter para instalar o netbeans 8.1 "
