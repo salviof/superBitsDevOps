@@ -5,7 +5,7 @@ prATUALIZAR_REQUISITO=$2
 prRespostaLimpar=$3
 source ~/superBitsDevOps/core/coreSBBash.sh
 
-echo "nome pasta Projeto====$NOME_PASTA_REPOSITORIO_SERVIDOR"
+alerta "Atualizando projeto: >$NOME_PASTA_REPOSITORIO_SERVIDOR<"
 # Verificando se o o Cliente e o Projeto foram enviados
 if [ $# -ne $ARGUMENTOS_ESPERADOS ]
 then
@@ -17,7 +17,9 @@ fi
 ATUALIZAR_REQUISITO=false
 if [[ $prATUALIZAR_REQUISITO == *"SIM"* ]]
 then
+alerta "Requisito será atualizado"
 ATUALIZAR_REQUISITO=true
+
 fi
 
 CAMINHO_PASTA_SERVIDOR=~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR
@@ -32,7 +34,7 @@ fi
 
 if [ $prRespostaLimpar == "SIM" ]
 then
-
+alerta "Antes de atualizar o sistema irá excluir o repositório, conforme solicitado..."
 # CRIAR BACKUP DO PROEJTO
 alerta "Criando diretorio do projeto em: ~/backup/$NOME_PROJETO "
 mkdir -p ~/backup/$NOME_PROJETO
@@ -127,23 +129,34 @@ cd ~/publicados
 alerta "Iniciando clonagem do projeto no servidor"
 git clone ~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR
 alerta "Fim do processod e clonagem"
-#cd ~/publicados/$NOME_PROJETO
 
-#git pull
 
 #FIM DO SCRIPT DE BACKUP
 fi
+alerta "atualizando cd ~/publicados/$NOME_PROJETO"
+cd ~/publicados/$NOME_PROJETO
 
+git pull
+
+alerta "Lendo informacoes de ~/publicados/$NOME_PROJETO/cliente.info"
 #Lê as informacoes do cliente (contendo o endereço do site que será homologado)
 # (OLD)para compatibilidade
+
 source ~/publicados/$NOME_PROJETO/cliente.info
+alerta "Leitura realizada com sucesso"
+
+alerta "Lendo informacoes de ~/publicados/$NOME_PROJETO/SBProjeto.prop"
 #Lê as informacoes do cliente (contendo o endereço do site que será homologado)
 #NOVO
 source ~/publicados/$NOME_PROJETO/SBProjeto.prop
+alerta "Leitura relizada com sucesso"
 
-echo " Atualizando  $ENDERECO_WEB_REQUISITO"
-echo " e  $SERVIDOR_REQUISITOS"
+alerta " Atualizando  Repositorio: ~/publicados/$NOME_PROJETO"
 
+
+
+
+alerta "removendo ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml"
 rm ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml -f
 
 # Adiciona o contecto no Jetty	
@@ -157,9 +170,12 @@ echo "       <Item>$ENDERECO_WEB</Item>  " >>  ~/servidor/jetty9/webapps/$GRUPO_
 echo "     </Array>  " >>  ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml
 echo "   </Set> " >>  ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml
 echo " </Configure> " >>  ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml
+alerta "o ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml foi atualizado"
 
 
 if $ATUALIZAR_REQUISITO ; then
+alerta "Atualizando requisitos"
+alerta " Atualizando  $ENDERECO_WEB_REQUISITO"
 ARQ_PROJ_REQUISITO=$GRUPO_PROJETO.req.xml
 
 rm ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO -f
