@@ -32,13 +32,11 @@ git config --global user.email "$email"
 git config --global credential.helper store
 echo "criando diretorio $caminhoSourceFJ"
 mkdir "$caminhoSourceSB" -p
-mkdir "$caminhoSourceFJ" -p
-mkdir "$caminhoReleaseFJ" -p
 mkdir "$caminhoReleaseSB" -p
 echo "SERVIDOR_GIT_SOURCE=https://github.com/salviof" > "$caminhoSourceSB/cliente.info"
-echo "SERVIDOR_GIT_SOURCE=https://github.com/salviof" > "$caminhoSourceFJ/cliente.info"
+
 echo "SERVIDOR_GIT_RELEASE=https://github.com/salviof/NAO_IMPLEMENTADO" > $caminhoReleaseSB/cliente.info
-echo "SERVIDOR_GIT_RELEASE=https://github.com/salviof/NAO_IMPLEMENTADO" > $caminhoReleaseFJ/cliente.info
+
 cd "$caminhoSourceSB"
 git clone "$urlRepositorioSBFW"
 
