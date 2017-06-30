@@ -36,14 +36,39 @@ git clone https://github.com/salviof/SB_CRIADOR_COMPONENTE
 alerta "Clonando Modulo Admin Tools "  
 git clone https://github.com/salviof/SB_AdminTools
 
+alerta "Compilando Tema Padrão JSF"
 cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/bibliotecas
 ./instalaTema.sh
-cd  /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/utilitarios/EditorImagem/
+
+alerta "Compilando Core"
+cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/SB_FRAMEWORK/SBCore
 mvn clean install    -Dmaven.test.skip=true
 
+alerta "Compilando Editor Imagem"
+cd  /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/utilitarios/EditorImagem/
+mvn clean install -Dmaven.test.skip=true
+
+
+alerta "Compilando SB PErsistencia"
+cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/SB_FRAMEWORK/SBPersistencia
+mvn clean install  -Dmaven.test.skip=true
+
+
+alerta "Compilando Acesso Model"
 cd  /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/SB_FRAMEWORK/SBAcessosModel/
 mvn clean install    -Dmaven.test.skip=true
+
+alerta "Compilando FrameWork"
 cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/SB_FRAMEWORK/
 mvn clean install    -Dmaven.test.skip=true
+alerta "Compilando utilitário SBShell"
+cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/utilitarios/SBShell/shellCommands
+mvn clean install    -Dmaven.test.skip=true
+
+cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/SBProjetos/model_regras/
+mvn clean install    -Dmaven.test.skip=true
+
+
+
 
 
