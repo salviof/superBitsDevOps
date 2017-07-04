@@ -128,11 +128,11 @@ then
 	git clone ~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR
 	alerta "Fim do processod e clonagem"
 fi
-	cd ~/publicados/$NOME_PROJETO
+cd ~/publicados/$NOME_PROJETO
 
-	git pull
+git pull
 
-	FIM DO SCRIPT DE BACKUP
+FIM DO SCRIPT DE BACKUP
 
 
 
