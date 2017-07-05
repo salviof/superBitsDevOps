@@ -75,6 +75,5 @@ echo "java -jar /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/S
 cd /home/superBits
 chmod +x ./SBConsole.sh
 
-
-
+./SBConsole.sh
 
