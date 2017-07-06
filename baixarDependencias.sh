@@ -83,7 +83,7 @@ alerta "Combinando Módulo Admin Tools"
 cd /home/superBits/projetos/Super_Bits/source/SB_AdminTools/modelRegras/
 mvn clean install    -Dmaven.test.skip=true
 cd /home/superBits/projetos/Super_Bits/source/SB_AdminTools/webApp
-mvn clean install    -Dmaven.test.skip=true
+#mvn clean install    -Dmaven.test.skip=true
 #./empacotarModulo.sh
 
 echo "java -jar /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/SBProjetos/SBComandos/target/SBComandos-0.9.one-jar.jar" > /home/superBits/SBConsole.sh
