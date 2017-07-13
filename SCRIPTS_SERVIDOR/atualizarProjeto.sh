@@ -17,13 +17,11 @@ fi
 ATUALIZAR_REQUISITO=false
 if [[ $prATUALIZAR_REQUISITO == *"SIM"* ]]
 then
-<<<<<<< HEAD
+
 alerta "Requisito será atualizado"
 ATUALIZAR_REQUISITO=true
 
-=======
-	ATUALIZAR_REQUISITO=true
->>>>>>> 9185520136a51e819097048bd51d3a529a0db3e5
+
 fi
 
 CAMINHO_PASTA_SERVIDOR=~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR
@@ -38,21 +36,14 @@ fi
 
 if [ $prRespostaLimpar == "SIM" ]
 then
-<<<<<<< HEAD
+
 alerta "Antes de atualizar o sistema irá excluir o repositório, conforme solicitado..."
 # CRIAR BACKUP DO PROEJTO
 alerta "Criando diretorio do projeto em: ~/backup/$NOME_PROJETO "
 mkdir -p ~/backup/$NOME_PROJETO
 alerta "Carregando source coreSBBash"
 source ~/superBitsDevOps/core/coreSBBash.sh
-=======
 
-	# CRIAR BACKUP DO PROEJTO
-	alerta "Criando diretorio do projeto em: ~/backup/$NOME_PROJETO "
-	mkdir -p ~/backup/$NOME_PROJETO
-	alerta "Carregando source coreSBBash"
-	source ~/superBitsDevOps/core/coreSBBash.sh
->>>>>>> 9185520136a51e819097048bd51d3a529a0db3e5
 
 	#SCRIPT DE BACKUP FULL REALIZADO DO FILESERVER  
 
@@ -108,20 +99,15 @@ source ~/superBitsDevOps/core/coreSBBash.sh
 	alerta "Iniciando BACKUP"
 	tar cvf $DESTINO $ORIGEM >> $LOG
 	alerta "Fim do BACKUP"
-
-<<<<<<< HEAD
-alerta "Iniciando clonagem do projeto no servidor"
-git clone ~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR
-alerta "Fim do processod e clonagem"
-
-=======
 	FINAL=`date +%d/%m/%Y-%H:%M:%S`  
 
 	echo " Backup finalizado em $FINAL" >> $LOG  
 	echo "|-----------------------------------------------" >> $LOG  
 	echo " " >> $LOG  
 	echo " " >> $LOG  
->>>>>>> 9185520136a51e819097048bd51d3a529a0db3e5
+
+
+
 
 	alerta "Um LOG do Backup foi criando: $LOG"
 
@@ -148,22 +134,13 @@ alerta "Fim do processod e clonagem"
 
 	alerta "Iniciando clonagem do projeto no servidor"
 	git clone ~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR
-	alerta "Fim do processod e clonagem"
+	
 fi
-<<<<<<< HEAD
-alerta "atualizando cd ~/publicados/$NOME_PROJETO"
+alerta "atualizando  ~/publicados/$NOME_PROJETO"
 cd ~/publicados/$NOME_PROJETO
-=======
-	cd ~/publicados/$NOME_PROJETO
-
-	git pull
-
-	FIM DO SCRIPT DE BACKUP
-
-
->>>>>>> 9185520136a51e819097048bd51d3a529a0db3e5
-
 git pull
+
+
 
 alerta "Lendo informacoes de ~/publicados/$NOME_PROJETO/cliente.info"
 #Lê as informacoes do cliente (contendo o endereço do site que será homologado)
@@ -185,7 +162,7 @@ alerta " Atualizando  Repositorio: ~/publicados/$NOME_PROJETO"
 
 alerta "removendo ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml"
 rm ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml -f
-
+alerta "Configurando novo ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml"
 # Adiciona o contecto no Jetty	
 echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?> "> ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml
 echo " <Configure class=\"org.eclipse.jetty.webapp.WebAppContext\"> " >>  ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml
@@ -201,7 +178,7 @@ alerta "o ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml foi atualizado"
 
 
 if $ATUALIZAR_REQUISITO ; then
-<<<<<<< HEAD
+
 alerta "Atualizando requisitos"
 alerta " Atualizando  $ENDERECO_WEB_REQUISITO"
 ARQ_PROJ_REQUISITO=$GRUPO_PROJETO.req.xml
@@ -218,21 +195,6 @@ echo "       <Item>$ENDERECO_WEB_REQUISITO</Item>  " >>  ~/servidor/jetty9/webap
 echo "     </Array>  " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
 echo "   </Set> " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
 echo " </Configure> " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
-=======
-	ARQ_PROJ_REQUISITO=$GRUPO_PROJETO.req.xml
 
-	rm ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO -f
-
-	echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?> "> ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
-	echo " <Configure class=\"org.eclipse.jetty.webapp.WebAppContext\"> " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
-	echo "   <Set name=\"contextPath\">/</Set> " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
-	echo "   <Set name=\"war\">/home/git/publicados/$GRUPO_PROJETO/$GRUPO_PROJETO.req.war</Set> " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
-	echo "   <Set name=\"virtualHosts\">            " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
-	echo "     <Array type=\"java.lang.String\">    " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
-	echo "       <Item>$ENDERECO_WEB_REQUISITO</Item>  " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
-	echo "     </Array>  " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
-	echo "   </Set> " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
-	echo " </Configure> " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
->>>>>>> 9185520136a51e819097048bd51d3a529a0db3e5
 fi
 
