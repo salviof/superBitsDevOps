@@ -64,13 +64,16 @@ mvn clean install    -Dmaven.test.skip=true
 alerta "Compilando utilitário SBShell"
 cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/utilitarios/SBShell/shellCommands
 mvn clean install    -Dmaven.test.skip=true
+alerta "Compilando model Regras do projeto"
+cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/SBProjetos/model_regras
+mvn -DskipTests=true clean install
 
-cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/SBProjetos/model_regras/
-mvn clean install    -Dmaven.test.skip=true
-
+alerta "Compilando SBComandos"
 cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/SBProjetos/SBComandos
 mvn clean install    -Dmaven.test.skip=true
 
+
+alerta "--Executando SBConcole"
 echo "java -jar /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/SBProjetos/SBComandos/target/SBComandos-0.9.one-jar.jar" > /home/superBits/SBConsole.sh
 cd /home/superBits
 chmod +x ./SBConsole.sh
