@@ -5,7 +5,7 @@ prATUALIZAR_REQUISITO=$2
 prRespostaLimpar=$3
 source ~/superBitsDevOps/core/coreSBBash.sh
 
-echo "nome pasta Projeto====$NOME_PASTA_REPOSITORIO_SERVIDOR"
+alerta "Atualizando projeto: >$NOME_PASTA_REPOSITORIO_SERVIDOR<"
 # Verificando se o o Cliente e o Projeto foram enviados
 if [ $# -ne $ARGUMENTOS_ESPERADOS ]
 then
@@ -17,7 +17,11 @@ fi
 ATUALIZAR_REQUISITO=false
 if [[ $prATUALIZAR_REQUISITO == *"SIM"* ]]
 then
-	ATUALIZAR_REQUISITO=true
+
+alerta "Requisito será atualizado"
+ATUALIZAR_REQUISITO=true
+
+
 fi
 
 CAMINHO_PASTA_SERVIDOR=~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR
@@ -33,11 +37,13 @@ fi
 if [ $prRespostaLimpar == "SIM" ]
 then
 
-	# CRIAR BACKUP DO PROEJTO
-	alerta "Criando diretorio do projeto em: ~/backup/$NOME_PROJETO "
-	mkdir -p ~/backup/$NOME_PROJETO
-	alerta "Carregando source coreSBBash"
-	source ~/superBitsDevOps/core/coreSBBash.sh
+alerta "Antes de atualizar o sistema irá excluir o repositório, conforme solicitado..."
+# CRIAR BACKUP DO PROEJTO
+alerta "Criando diretorio do projeto em: ~/backup/$NOME_PROJETO "
+mkdir -p ~/backup/$NOME_PROJETO
+alerta "Carregando source coreSBBash"
+source ~/superBitsDevOps/core/coreSBBash.sh
+
 
 	#SCRIPT DE BACKUP FULL REALIZADO DO FILESERVER  
 
@@ -93,13 +99,15 @@ then
 	alerta "Iniciando BACKUP"
 	tar cvf $DESTINO $ORIGEM >> $LOG
 	alerta "Fim do BACKUP"
-
 	FINAL=`date +%d/%m/%Y-%H:%M:%S`  
 
 	echo " Backup finalizado em $FINAL" >> $LOG  
 	echo "|-----------------------------------------------" >> $LOG  
 	echo " " >> $LOG  
 	echo " " >> $LOG  
+
+
+
 
 	alerta "Um LOG do Backup foi criando: $LOG"
 
@@ -126,28 +134,43 @@ then
 
 	alerta "Iniciando clonagem do projeto no servidor"
 	git clone ~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR
-	alerta "Fim do processod e clonagem"
+	
 fi
+<<<<<<< HEAD
 cd ~/publicados/$NOME_PROJETO
 
 git pull
 
 FIM DO SCRIPT DE BACKUP
+=======
+alerta "atualizando  ~/publicados/$NOME_PROJETO"
+cd ~/publicados/$NOME_PROJETO
+git pull
+>>>>>>> 091fc6bc2bf5888ab3369c225325486bec41d93b
 
 
 
+alerta "Lendo informacoes de ~/publicados/$NOME_PROJETO/cliente.info"
 #Lê as informacoes do cliente (contendo o endereço do site que será homologado)
 # (OLD)para compatibilidade
+
 source ~/publicados/$NOME_PROJETO/cliente.info
+alerta "Leitura realizada com sucesso"
+
+alerta "Lendo informacoes de ~/publicados/$NOME_PROJETO/SBProjeto.prop"
 #Lê as informacoes do cliente (contendo o endereço do site que será homologado)
 #NOVO
 source ~/publicados/$NOME_PROJETO/SBProjeto.prop
+alerta "Leitura relizada com sucesso"
 
-echo " Atualizando  $ENDERECO_WEB_REQUISITO"
-echo " e  $SERVIDOR_REQUISITOS"
+alerta " Atualizando  Repositorio: ~/publicados/$NOME_PROJETO"
 
+
+
+
+alerta "removendo ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml"
 rm ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml -f
-
+alerta "Configurando novo ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml"
 # Adiciona o contecto no Jetty	
 echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?> "> ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml
 echo " <Configure class=\"org.eclipse.jetty.webapp.WebAppContext\"> " >>  ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml
@@ -159,22 +182,27 @@ echo "       <Item>$ENDERECO_WEB</Item>  " >>  ~/servidor/jetty9/webapps/$GRUPO_
 echo "     </Array>  " >>  ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml
 echo "   </Set> " >>  ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml
 echo " </Configure> " >>  ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml
+alerta "o ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml foi atualizado"
 
 
 if $ATUALIZAR_REQUISITO ; then
-	ARQ_PROJ_REQUISITO=$GRUPO_PROJETO.req.xml
 
-	rm ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO -f
+alerta "Atualizando requisitos"
+alerta " Atualizando  $ENDERECO_WEB_REQUISITO"
+ARQ_PROJ_REQUISITO=$GRUPO_PROJETO.req.xml
 
-	echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?> "> ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
-	echo " <Configure class=\"org.eclipse.jetty.webapp.WebAppContext\"> " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
-	echo "   <Set name=\"contextPath\">/</Set> " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
-	echo "   <Set name=\"war\">/home/git/publicados/$GRUPO_PROJETO/$GRUPO_PROJETO.req.war</Set> " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
-	echo "   <Set name=\"virtualHosts\">            " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
-	echo "     <Array type=\"java.lang.String\">    " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
-	echo "       <Item>$ENDERECO_WEB_REQUISITO</Item>  " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
-	echo "     </Array>  " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
-	echo "   </Set> " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
-	echo " </Configure> " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
+rm ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO -f
+
+echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?> "> ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
+echo " <Configure class=\"org.eclipse.jetty.webapp.WebAppContext\"> " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
+echo "   <Set name=\"contextPath\">/</Set> " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
+echo "   <Set name=\"war\">/home/git/publicados/$GRUPO_PROJETO/$GRUPO_PROJETO.req.war</Set> " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
+echo "   <Set name=\"virtualHosts\">            " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
+echo "     <Array type=\"java.lang.String\">    " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
+echo "       <Item>$ENDERECO_WEB_REQUISITO</Item>  " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
+echo "     </Array>  " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
+echo "   </Set> " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
+echo " </Configure> " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
+
 fi
 
