@@ -136,17 +136,9 @@ source ~/superBitsDevOps/core/coreSBBash.sh
 	git clone ~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR
 	
 fi
-<<<<<<< HEAD
-cd ~/publicados/$NOME_PROJETO
-
-git pull
-
-FIM DO SCRIPT DE BACKUP
-=======
 alerta "atualizando  ~/publicados/$NOME_PROJETO"
 cd ~/publicados/$NOME_PROJETO
 git pull
->>>>>>> 091fc6bc2bf5888ab3369c225325486bec41d93b
 
 
 
