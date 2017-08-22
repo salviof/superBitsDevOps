@@ -69,16 +69,13 @@ mvn clean install    -Dmaven.test.skip=true
 alerta "Compilando utilitário SBShell"
 cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/utilitarios/SBShell/shellCommands
 mvn clean install    -Dmaven.test.skip=true
-<<<<<<< HEAD
+
 alerta "Compilando model Regras do projeto"
 cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/SBProjetos/model_regras
 mvn -DskipTests=true clean install
 
-=======
-alerta "compilando SBProjetos"
-cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/SBProjetos/model_regras/
-mvn clean install    -Dmaven.test.skip=true
->>>>>>> 091fc6bc2bf5888ab3369c225325486bec41d93b
+
+
 alerta "Compilando SBComandos"
 cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/SBProjetos/SBComandos
 mvn clean install    -Dmaven.test.skip=true
