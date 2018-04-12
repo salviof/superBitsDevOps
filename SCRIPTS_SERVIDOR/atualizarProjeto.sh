@@ -3,7 +3,9 @@ NOME_PASTA_REPOSITORIO_SERVIDOR=$1.git
 NOME_PROJETO=$1
 prATUALIZAR_REQUISITO=$2
 prRespostaLimpar=$3
+alerta "Carregando source coreSBBash"
 source ~/superBitsDevOps/core/coreSBBash.sh
+
 
 alerta "Atualizando projeto: >$NOME_PASTA_REPOSITORIO_SERVIDOR<"
 # Verificando se o o Cliente e o Projeto foram enviados
@@ -24,15 +26,6 @@ ATUALIZAR_REQUISITO=true
 
 fi
 
-CAMINHO_PASTA_SERVIDOR=~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR
-if [ ! -d "$CAMINHO_PASTA_SERVIDOR" ]
-then
-	echo "O repositorio Relase do projeto não foi encontrado EM ~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR  $0  "
-	exit $E_BADARGS
-fi
-
-
-
 
 if [ $prRespostaLimpar == "SIM" ]
 then
@@ -41,10 +34,6 @@ alerta "Antes de atualizar o sistema irá excluir o repositório, conforme solic
 # CRIAR BACKUP DO PROEJTO
 alerta "Criando diretorio do projeto em: ~/backup/$NOME_PROJETO "
 mkdir -p ~/backup/$NOME_PROJETO
-alerta "Carregando source coreSBBash"
-source ~/superBitsDevOps/core/coreSBBash.sh
-
-
 	#SCRIPT DE BACKUP FULL REALIZADO DO FILESERVER  
 
 	alerta "Definindo variaveis de BACKUP"
@@ -136,9 +125,7 @@ source ~/superBitsDevOps/core/coreSBBash.sh
 	git clone ~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR
 	
 fi
-alerta "atualizando  ~/publicados/$NOME_PROJETO"
-cd ~/publicados/$NOME_PROJETO
-git pull
+
 
 
 
@@ -148,14 +135,13 @@ alerta "Lendo informacoes de ~/publicados/$NOME_PROJETO/cliente.info"
 
 source ~/publicados/$NOME_PROJETO/cliente.info
 alerta "Leitura realizada com sucesso"
-
 alerta "Lendo informacoes de ~/publicados/$NOME_PROJETO/SBProjeto.prop"
 #Lê as informacoes do cliente (contendo o endereço do site que será homologado)
 #NOVO
 source ~/publicados/$NOME_PROJETO/SBProjeto.prop
 alerta "Leitura relizada com sucesso"
 
-alerta " Atualizando  Repositorio: ~/publicados/$NOME_PROJETO"
+
 
 
 
