@@ -170,7 +170,7 @@ pMensagem=$2
     return 0 
   else
    alerta $pMensagem
-   exit 
+   exit 0
   fi
 }
 
