@@ -6,8 +6,8 @@ source /home/superBits/superBitsDevOps/core/coreSBBash.sh
 
 source /home/superBits/superBitsDevOps/VARIAVEIS/SB_VARIAVEIS.sh
 alerta "Verificando instalação de programas nescessários: git e Maven"
-sudo yum install git
-sudo yum install maven
+sudo yum -y install git
+sudo yum -y install maven
 
 alerta "Criando Pasta Source do Coletivo Java"
 mkdir "$caminhoSourceSB" -p

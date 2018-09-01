@@ -22,8 +22,6 @@ then
 
 alerta "Requisito será atualizado"
 ATUALIZAR_REQUISITO=true
-
-
 fi
 
 
@@ -94,9 +92,6 @@ mkdir -p ~/backup/$NOME_PROJETO
 	echo "|-----------------------------------------------" >> $LOG  
 	echo " " >> $LOG  
 	echo " " >> $LOG  
-
-
-
 
 	alerta "Um LOG do Backup foi criando: $LOG"
 
