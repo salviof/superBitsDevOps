@@ -40,28 +40,9 @@ alerta "Compilando Tema Padrão JSF"
 cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/bibliotecas
 ./instalaTema.sh
 
-alerta "Compilando Core"
-cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/SB_FRAMEWORK/SBCore
-mvn clean install    -Dmaven.test.skip=true
-
-alerta "Compilando Editor Imagem"
-cd  /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/utilitarios/EditorImagem/
-mvn clean install -Dmaven.test.skip=true
-
-alerta "Compilando Editor de Arquivos de Usuários"
-cd  /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/utilitarios/EditorImagem/
-mvn clean install -Dmaven.test.skip=true
 
 
 
-alerta "Compilando SB PErsistencia"
-cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/SB_FRAMEWORK/SBPersistencia
-mvn clean install  -Dmaven.test.skip=true
-
-
-alerta "Compilando Acesso Model"
-cd  /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/SB_FRAMEWORK/SBAcessosModel/
-mvn clean install    -Dmaven.test.skip=true
 
 alerta "Compilando FrameWork"
 cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/SB_FRAMEWORK/
