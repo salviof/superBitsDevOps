@@ -41,11 +41,9 @@ cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/bibliotecas
 ./instalaTema.sh
 
 
-
-
-
 alerta "Compilando FrameWork"
-cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/SB_FRAMEWORK/
+   
+cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/SB_FRAMEWORK
 mvn clean install    -Dmaven.test.skip=true
 alerta "Compilando utilitário SBShell"
 cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/utilitarios/SBShell/shellCommands
