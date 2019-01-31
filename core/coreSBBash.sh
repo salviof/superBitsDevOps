@@ -37,16 +37,61 @@
 
 ############################# Mensagens #######################################################
 # exemplo: msgAlerta Colé Jedi?
+
+RESTORE=$(echo -en '\033[0m;0m')
+RED=$(echo -en '\033[00;31m')
+GREEN=$(echo -en '\033[00;32m')
+YELLOW=$(echo -en '\033[00;33m')
+BLUE=$(echo -en '\033[00;34m')
+MAGENTA=$(echo -en '\033[38;5m;200')
+PURPLE=$(echo -en '\033[00;35m')
+CYAN=$(echo -en '\033[00;36m')
+LIGHTGRAY=$(echo -en '\033[00;37m')
+LRED=$(echo -en '\033[01;31m')
+LGREEN=$(echo -en '\033[01;32m')
+LYELLOW=$(echo -en '\033[01;33m')
+LBLUE=$(echo -en '\033[01;34m')
+LMAGENTA=$(echo -en '\033[01;35m')
+LPURPLE=$(echo -en '\033[01;35m')
+LCYAN=$(echo -en '\033[01;36m')
+WHITE=$(echo -en '\033[01;37m')
+ROSA=$(echo -en '\033[40m\033[1;35m')
 SBCORE_ESTILO_ORIGINAL='\033[0m'
+magenta='\x1b[97m'
+pink=$'\x1b[97m'
+
 function alerta() {
     pMensagem="$1"
-    echo -e -n "\033[1;36m$pMensagem"   
+    echo $LCYAN
+    echo "$pMensagem"
+    echo -en "${SBCORE_ESTILO_ORIGINAL}"
+  
+}
+
+function alerta1() {
+    pMensagem="$1"
+    echo $ROSA
+    echo "$pMensagem"
+    echo -en "${SBCORE_ESTILO_ORIGINAL}"
+ 
+
+}
+
+
+function alerta2() {
+    pMensagem="$1"
+    echo -e -n "\033[01;32m$pMensagem"   
     echo -en "${SBCORE_ESTILO_ORIGINAL}"
     echo " "
 }
+
+
+
+
+
 function alertaMuitoImportante() {
     pMensagem="$1"
-    echo -e -n "\033[1;36m$pMensagem"   
+    echo -e -n "\033[01;31m$pMensagem"   
     echo -en "${SBCORE_ESTILO_ORIGINAL}"
     echo " "
 }
@@ -125,7 +170,7 @@ pMensagem=$2
     return 0 
   else
    alerta $pMensagem
-   exit 
+   exit 0
   fi
 }
 

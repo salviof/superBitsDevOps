@@ -3,7 +3,9 @@ NOME_PASTA_REPOSITORIO_SERVIDOR=$1.git
 NOME_PROJETO=$1
 prATUALIZAR_REQUISITO=$2
 prRespostaLimpar=$3
+alerta "Carregando source coreSBBash"
 source ~/superBitsDevOps/core/coreSBBash.sh
+
 
 alerta "Atualizando projeto: >$NOME_PASTA_REPOSITORIO_SERVIDOR<"
 # Verificando se o o Cliente e o Projeto foram enviados
@@ -29,10 +31,6 @@ alerta "Antes de atualizar o sistema irá excluir o repositório, conforme solic
 # CRIAR BACKUP DO PROEJTO
 alerta "Criando diretorio do projeto em: ~/backup/$NOME_PROJETO "
 mkdir -p ~/backup/$NOME_PROJETO
-alerta "Carregando source coreSBBash"
-source ~/superBitsDevOps/core/coreSBBash.sh
-
-
 	#SCRIPT DE BACKUP FULL REALIZADO DO FILESERVER  
 
 	alerta "Definindo variaveis de BACKUP"
@@ -80,6 +78,10 @@ source ~/superBitsDevOps/core/coreSBBash.sh
 	echo "|-----------------------------------------------" >> $LOG  
 	echo " " >> $LOG  
 	echo " " >> $LOG  
+<<<<<<< HEAD
+=======
+
+>>>>>>> f08a30e1e284034a2a9b5d6a1687c36c060bcb78
 	alerta "Um LOG do Backup foi criando: $LOG"
 	# APAGAR PASTA DO PROJETO
 	alerta "Verificando se o nome do projeto foi informado"
@@ -96,8 +98,13 @@ source ~/superBitsDevOps/core/coreSBBash.sh
 	alerta "Iniciando clonagem do projeto no servidor"
 fi
 
+<<<<<<< HEAD
 alerta "atualizando  ~/publicados/$NOME_PROJETO"
 cd ~/publicados/$NOME_PROJETO
+=======
+
+
+>>>>>>> f08a30e1e284034a2a9b5d6a1687c36c060bcb78
 
 alerta "Lendo informacoes de ~/publicados/$NOME_PROJETO/cliente.info"
 #Lê as informacoes do cliente (contendo o endereço do site que será homologado)
@@ -105,14 +112,21 @@ alerta "Lendo informacoes de ~/publicados/$NOME_PROJETO/cliente.info"
 
 source ~/publicados/$NOME_PROJETO/cliente.info
 alerta "Leitura realizada com sucesso"
-
 alerta "Lendo informacoes de ~/publicados/$NOME_PROJETO/SBProjeto.prop"
 #Lê as informacoes do cliente (contendo o endereço do site que será homologado)
 #NOVO
 source ~/publicados/$NOME_PROJETO/SBProjeto.prop
 alerta "Leitura relizada com sucesso"
 
+<<<<<<< HEAD
 alerta " Atualizando  Repositorio: ~/publicados/$NOME_PROJETO"
+=======
+
+
+
+
+
+>>>>>>> f08a30e1e284034a2a9b5d6a1687c36c060bcb78
 alerta "removendo ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml"
 
 rm ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml -f

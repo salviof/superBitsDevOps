@@ -6,7 +6,7 @@ echo "configurando variaveis para $PASTA_PROJETO"
 if [ $# -ne $ARGUMENTOS_ESPERADOS ]
 then
   echo "Especifique o nome caminho para pasta do projeto $0 ;) "
-  exit $E_BADARGS
+  exit 0
 fi
 source /home/superBits/superBitsDevOps/VARIAVEIS/SB_VARIAVEIS.sh
 
@@ -16,98 +16,25 @@ CLIENTE=${SPLIT_CAMINHO_PROJETO[4]};
 NOME_PROJETO=${SPLIT_CAMINHO_PROJETO[6]}
 CAMINHO_CLIENTE=/${SPLIT_CAMINHO_PROJETO[1]}/${SPLIT_CAMINHO_PROJETO[2]}/${SPLIT_CAMINHO_PROJETO[3]}/${SPLIT_CAMINHO_PROJETO[4]}
 
-echo "$NOME_PROJETO"
+echo "${#NOME_PROJETO}"
+
+if [ "${#NOME_PROJETO}" -le 1 ]
+then 
+   alerta "O nome do projeto não foi determinado"		
+   exit 0;
+fi
+
 CAMINHO_CLIENTE_SOURCE=$CAMINHO_CLIENTE/source
 CAMINHO_RELEASE=$CAMINHO_CLIENTE/release #Depreciado, subistituir pelo abaixo
 CAMINHO_CLIENTE_RELEASE=$CAMINHO_CLIENTE/release 
 
-echo "Executando $COMANDO em $PASTA_PROJETO"
-#ATENÇÃO VARIAVEL DUPLICADA EM SB_VARIAVEIS
-declare -a PASTAS_MODULO=("modelRegras" "webApp" "Android" "ws" "ic")
-declare -a CAMINHOS_TODOS_PROJETOS=($PASTA_PROJETO)
-declare -a CAMINHOS_TUDO=("/home" "/home/superBits")
-declare -a CAMINHOS_FRAMEWORK=("/home" "$caminhoSBFW")
-declare -a CAMINHOS_MODEL=("modelRegra")
-#Criando array com camihos para execução e adicionando a pasta do projeto
-declare -a CAMINHOS_EXECUCAO=()
 
-if [[ "$COMANDO" == compila* ]] 
-then
-declare -a SCRIPTS_COM_ACOES=("compilar.sh")
-fi
-
-if [[ "$COMANDO" ==  sincroniza* ]] 
-then
-declare -a SCRIPTS_COM_ACOES=("sincronizar.sh")
-fi
-
-if [[ "$COMANDO" == baixar* ]] 
-then
-declare -a SCRIPTS_COM_ACOES=("baixar.sh")
-fi
-
-if [[ "$COMANDO" == enviar* ]] 
-then
-declare -a SCRIPTS_COM_ACOES=("enviar.sh")
-fi
-
-if [[ "$COMANDO" == executar* ]] 
-then
-declare -a SCRIPTS_COM_ACOES=("executar.sh")
-fi
-
-if [[ "$COMANDO" == implantar* ]] 
-then
-declare -a SCRIPTS_COM_ACOES=("testeConformidade.sh" "implantar.sh")
-fi
-
-if [[ "$COMANDO" == testar* ]] 
-then
-declare -a SCRIPTS_COM_ACOES=("testeConformidade.sh")
-fi
-
-
-
-#Adiciona os caminhos e seus respectivos Scripts que devem ser executados
-if [[ "$COMANDO" == *Tudo.sh ]] 
-then
-for idx in "${!CAMINHOS_TUDO[@]}"; do
-    CAMINHOS_EXECUCAO+=(${CAMINHOS_TUDO[$idx]})
-done
-fi
-
-
-#Adiciona os caminhos e seus respectivos Scripts que devem ser executados
-if [[ "$COMANDO" == *TodosProjetos.sh ]] 
-then
-for idx in "${!CAMINHOS_TODOS_PROJETOS[@]}"; do
-    CAMINHOS_EXECUCAO+=(${CAMINHOS_TUDO[$idx]})
-done
-fi
-
-
-#Adiciona os caminhos e seus respectivos Scripts que devem ser executados
-if [[ "$COMANDO" == *Model.sh ]] 
-then
-for idx in "${!CAMINHOS_TODOS_PROJETOS[@]}"; do
-    CAMINHOS_EXECUCAO+=(${CAMINHOS_MODEL[$idx]})
-done
-fi
-
-
-
-#Adiciona os caminhos e seus respectivos Scripts que devem ser executados
-if [[ "$COMANDO" == *FrameWork.sh ]] 
-then
-for idx in "${!CAMINHOS_FRAMEWORK[@]}"; do
-    CAMINHOS_EXECUCAO+=(${CAMINHOS_FRAMEWORK[$idx]})
-done
-fi
-
-
-# ADICIONANDO A PASTA DO PROJETO (É UTULIZADA EM TODOS)
- CAMINHOS_EXECUCAO+=($PASTA_PROJETO)
-
+alerta1 "Variavel NOME_PROJETO=[$NOME_PROJETO]"
+alerta1 "Variavel CLIENTE=[$CLIENTE]"
+alerta1 "Variável CAMINHO_CLIENTE_SOURCE=[$CAMINHO_CLIENTE_SOURCE]"
+alerta1 "Variavel CAMINHO_CLIENTE_RELEASE = [$CAMINHO_CLIENTE_RELEASE]"
+alerta1  "Variavel CAMINHO_RELEASE = [$CAMINHO_RELEASE]"
+alerta1 "Variavel CAMINHO_CLIENTE =[$CAMINHO_CLIENTE] "
 
 
 

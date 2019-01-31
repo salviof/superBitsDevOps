@@ -48,7 +48,8 @@ PROJETO_GIT_RELEASE=$SERVIDOR_GIT_RELEASE/$projeto
 
 
 
-
+alerta2 "carregando variaveis do projeto,isto está  depreciado????"
+alertaMuitoImportante "DEPRECIADO?????????????"
 
 
 

@@ -6,8 +6,8 @@ source /home/superBits/superBitsDevOps/core/coreSBBash.sh
 
 source /home/superBits/superBitsDevOps/VARIAVEIS/SB_VARIAVEIS.sh
 alerta "Verificando instalação de programas nescessários: git e Maven"
-sudo yum install git
-sudo yum install maven
+sudo yum -y install git
+sudo yum -y install maven
 
 alerta "Criando Pasta Source do Coletivo Java"
 mkdir "$caminhoSourceSB" -p
@@ -40,31 +40,10 @@ alerta "Compilando Tema Padrão JSF"
 cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/bibliotecas
 ./instalaTema.sh
 
-alerta "Compilando Core"
-cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/SB_FRAMEWORK/SBCore
-mvn clean install    -Dmaven.test.skip=true
-
-alerta "Compilando Editor Imagem"
-cd  /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/utilitarios/EditorImagem/
-mvn clean install -Dmaven.test.skip=true
-
-alerta "Compilando Editor de Arquivos de Usuários"
-cd  /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/utilitarios/EditorImagem/
-mvn clean install -Dmaven.test.skip=true
-
-
-
-alerta "Compilando SB PErsistencia"
-cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/SB_FRAMEWORK/SBPersistencia
-mvn clean install  -Dmaven.test.skip=true
-
-
-alerta "Compilando Acesso Model"
-cd  /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/SB_FRAMEWORK/SBAcessosModel/
-mvn clean install    -Dmaven.test.skip=true
 
 alerta "Compilando FrameWork"
-cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/SB_FRAMEWORK/
+   
+cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/SB_FRAMEWORK
 mvn clean install    -Dmaven.test.skip=true
 alerta "Compilando utilitário SBShell"
 cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/utilitarios/SBShell/shellCommands
