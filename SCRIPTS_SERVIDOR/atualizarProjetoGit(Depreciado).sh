@@ -17,9 +17,21 @@ fi
 ATUALIZAR_REQUISITO=false
 if [[ $prATUALIZAR_REQUISITO == *"SIM"* ]]
 then
+
 alerta "Requisito será atualizado"
 ATUALIZAR_REQUISITO=true
+
+
 fi
+
+CAMINHO_PASTA_SERVIDOR=~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR
+if [ ! -d "$CAMINHO_PASTA_SERVIDOR" ]
+then
+	echo "O repositorio Relase do projeto não foi encontrado EM ~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR  $0  "
+	exit $E_BADARGS
+fi
+
+
 
 
 if [ $prRespostaLimpar == "SIM" ]
@@ -39,17 +51,21 @@ source ~/superBitsDevOps/core/coreSBBash.sh
 	#VARIAVEIS  
 	INICIO=`date +%d/%m/%Y-%H:%M:%S`  
 	LOG=~/backup/$NOME_PROJETO/$NOME_PROJETO_`date +%Y-%m-%d`_log-backup-full.txt
-	lerta "Buscando origem do UltimoBackup" 
+
+	alerta "Buscando origem do UltimoBackup" 
 	#DEFINA AQUI O DIRETÓRIO QUE SERÁ EFETUADO O BACKUP DO BACKUP
 	ORIGEM=~/backup/$NOME_PROJETO/ultimoBackup_$NOME_PROJETO.tar.gz
+
 	alerta "Definindo destino do PenultimoBackup" 
 	#DEFINA AQUI O DIRETÓRIO ONDE O ARQUIVO SERÁ GRAVADO JUNTO COM O SEU NOME  
 	DESTINO=~/backup/$NOME_PROJETO/penultimoBackup_$NOME_PROJETO.tar.gz
+
 	#CRIA O ARQUIVO DE LOGS  
 	echo " " >> $LOG  
 	echo " " >> $LOG  
 	echo "|-----------------------------------------------" >> $LOG  
 	echo " Backup iniciado em $INICIO" >> $LOG  
+
 	alerta "Verificando se o arquivo existe"
 	if [ -f "$ORIGEM" ]
 	then
@@ -61,43 +77,70 @@ source ~/superBitsDevOps/core/coreSBBash.sh
 		cp $ORIGEM $DESTINO -r -f
 
 	else
+
 		alerta "Não existe Backup para ser arquivado!"
+
 	fi
+
 	alerta "Buscando diretorio para BACKUP"
 	#DEFINA AQUI O DIRETÓRIO QUE SERÁ EFETUADO O NOVO BACKUP
 	ORIGEM=~/publicados/$NOME_PROJETO/*
+
 	alerta "Definindo destino do BACKUP"
 	#DEFINA AQUI O DIRETÓRIO ONDE O ARQUIVO SERÁ GRAVADO JUNTO COM O SEU NOME  
 	DESTINO=~/backup/$NOME_PROJETO/ultimoBackup_$NOME_PROJETO.tar.gz
+
+
 	alerta "Iniciando Backup" 
+
 	alerta "De: $ORIGEM --- Para: $DESTINO"
+
 	#CRIA O BACKUP  
 	alerta "Iniciando BACKUP"
 	tar cvf $DESTINO $ORIGEM >> $LOG
 	alerta "Fim do BACKUP"
 	FINAL=`date +%d/%m/%Y-%H:%M:%S`  
+
 	echo " Backup finalizado em $FINAL" >> $LOG  
 	echo "|-----------------------------------------------" >> $LOG  
 	echo " " >> $LOG  
 	echo " " >> $LOG  
+
+
+
+
 	alerta "Um LOG do Backup foi criando: $LOG"
+
+
 	# APAGAR PASTA DO PROJETO
+
 	alerta "Verificando se o nome do projeto foi informado"
+
 	if [ ${#NOME_PROJETO} == 0 ]
 	then
 		exit
 	fi  
+
 	alerta "Verificando se diretorio existe"  
 	arqSairSePastaNaoExistir ./publicados/$NOME_PROJETO "O Diretorio informado não existe!"
+
 	alerta "Apagando diretorio: /~/publicados/$NOME_PROJETO"
 	rm ~/publicados/$NOME_PROJETO -r -f
-	# CRIAR PASTA DO PROJETO
-	cd ~/publicados
-	alerta "Iniciando clonagem do projeto no servidor"
-fi
 
+
+	# CRIAR PASTA DO PROJETO
+
+	cd ~/publicados
+
+	alerta "Iniciando clonagem do projeto no servidor"
+	git clone ~/gitServer/release/$NOME_PASTA_REPOSITORIO_SERVIDOR
+	
+fi
 alerta "atualizando  ~/publicados/$NOME_PROJETO"
 cd ~/publicados/$NOME_PROJETO
+git pull
+
+
 
 alerta "Lendo informacoes de ~/publicados/$NOME_PROJETO/cliente.info"
 #Lê as informacoes do cliente (contendo o endereço do site que será homologado)
@@ -113,8 +156,11 @@ source ~/publicados/$NOME_PROJETO/SBProjeto.prop
 alerta "Leitura relizada com sucesso"
 
 alerta " Atualizando  Repositorio: ~/publicados/$NOME_PROJETO"
-alerta "removendo ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml"
 
+
+
+
+alerta "removendo ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml"
 rm ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml -f
 alerta "Configurando novo ~/servidor/jetty9/webapps/$GRUPO_PROJETO.xml"
 # Adiciona o contecto no Jetty	
@@ -151,8 +197,4 @@ echo "   </Set> " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
 echo " </Configure> " >>  ~/servidor/jetty9/webapps/$ARQ_PROJ_REQUISITO
 
 fi
-
-
-
-
 
