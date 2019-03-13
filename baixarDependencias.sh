@@ -33,11 +33,11 @@ git clone https://github.com/salviof/SB_AdminTools
 alerta "Clonando SBProjetos em Super_Bits"
 git clone https://github.com/salviof/SB_Projetos
 alerta "Instalando Framework"
-cd $CAMINHO_SOURCE_COLETIVO
+cd $CAMINHO_SOURCE_COLETIVO/fw
 git clone https://github.com/salviof/FWColetivoJava.git
-cd $CAMINHO_SOURCE_COLETIVO/FWColetivoJava
+cd $CAMINHO_SOURCE_COLETIVO/fw/FWColetivoJava
 ./baixarDependencias.sh
-cd $CAMINHO_SOURCE_COLETIVO/FWColetivoJava
+cd $CAMINHO_SOURCE_COLETIVO/fw/FWColetivoJava
 ./dependenciasErpOpen.sh
 ./compilarTudo.sh
 #alerta "Clonando Modulos Básicos Super Bits frame Work"
