@@ -10,7 +10,7 @@ sudo yum -y install git
 sudo yum -y install maven
 
 alerta "Criando Pasta Source do Coletivo Java"
-mkdir $CAMINHO_SOURCE_COLETIVO -p
+mkdir $CAMINHO_SOURCE_COLETIVO/fw -p
 alerta "Criando Pasta Source para projetos de desenvolvimento do Super-Bits Framework"
 mkdir "$CAMINHO_SOURCE_SB" -p
 alerta "Criando Pasta Release para projetos de desenvolvimento do Super-Bits Framework"
