@@ -10,6 +10,7 @@ git clone https://github.com/salviof/util.git
 git clone https://github.com/salviof/SBPersistencia.git
 git clone https://github.com/salviof/SBAcessosModel.git
 git clone https://github.com/salviof/SBWebPaginas.git
+git clone https://github.com/salviof/FWColetivoJava
 mkdir /home/superBits/projetos/coletivoJava/source/erpColetivoJava/ -p 
 cd /home/superBits/projetos/coletivoJava/source/erpColetivoJava/
 git clone https://github.com/salviof/apiComunicacao.git  
