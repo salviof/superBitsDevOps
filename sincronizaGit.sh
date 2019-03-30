@@ -5,6 +5,6 @@ git add --all
 git commit -m "Atualizacao automática"
 git push
 #chmod +777 * -R
-cd devOpsProjetos
+cd devOpsProjeto
 git pull
 
