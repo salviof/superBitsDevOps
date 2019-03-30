@@ -24,6 +24,7 @@ alerta "a configuração para o caminho padrão do comando java através do coma
 pause
 ENDERECO_SDK=http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163
 ARQUIVO_SDK=jdk-8u131-linux-x64.rpm
+PASTA_SDK=jdk1.8.0_131
 alerta "Baixando JDK 1.8 64 bits Oracle "]
 alerta "em : $ENDERECO_SDK/$ARQUIVO_SDK"
 
@@ -33,19 +34,20 @@ wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-
 cd ~
 arqSairSeArquivoNaoExistir ~/$ARQUIVO_SDK "Houve um erro ao Baixar o arquivo JDK, verifique o novo endereço no site da oracle, atualise este arquivo, e se possível efetue um pull requeste de atualização para colaborar com esta alteração"
 
-sudo yum install ~/$ARQUIVO_SDK
+sudo rpm -Uvh /home/$USER/$ARQUIVO_SDK
+
 
 alerta "você deverá informar o NUMERO CORRESPONDENTE ao caminho do  JAVA SKD 1.8 Oracle "
 
- alternatives --config java
- alternatives --config javac
- alternatives --config javaws
- alternatives --config jar
+sudo alternatives --config java
+sudo alternatives --config javac
+sudo alternatives --config javaws
+sudo alternatives --config jar
 
 echo " CONFIGURANDO JAVA_HOME "
 alerta "Adicionando caminho para o java home em ~/.bash_profile"
-echo "export JAVA_HOME=/usr/java/lastest" >> ~/.bash_profile
-export JAVA_HOME=/usr/java/latest     
+echo "export JAVA_HOME=/usr/java/$PASTA_SDK" >> ~/.bash_profile
+export JAVA_HOME=/usr/java/$PASTA_SDK
 
 echo "ATENÇÃO "
 echo "precione enter para instalar o netbeans 8.1 "

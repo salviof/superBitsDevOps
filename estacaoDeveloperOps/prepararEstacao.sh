@@ -6,8 +6,8 @@
 source /home/superBits/superBitsDevOps/core/coreSBBash.sh
 #
 
-variaveisSB=/home/superBits/superBitsDevOps/VARIAVEIS/SB_VARIAVEIS.sh
-source /home/superBits/superBitsDevOps/VARIAVEIS/SB_VARIAVEIS.sh
+AMBIENTE_SB=/home/superBits/superBitsDevOps/VARIAVEIS/SB_VARIAVEIS.sh
+source $AMBIENTE_SB
 
 echo "$caminhoFrameWork"
 alerta "Bem Vindo ao sistema de Softwares Super-Bits"
@@ -36,53 +36,49 @@ alerta "Preparando ambiente para mudar o mundo com open-source? [ENTER]"
 pause
 git config --global user.name "$nome"
 git config --global user.email "$email"
+alerta "Configurando git para armazenar senhas"
 git config --global credential.helper store
-echo "criando diretorio $caminhoSourceFJ"
-mkdir "$caminhoSourceSB" -p
-mkdir "$caminhoReleaseSB" -p
-echo "SERVIDOR_GIT_SOURCE=https://github.com/salviof" > "$caminhoSourceSB/cliente.info"
+alerta "Configurando vimdiff como aplicativo padrão para resolução de confitos"
+git config --global diff.tool vimdiff
+git config --global difftool.prompt false
+git config --global alias.d difftool
+#echo "criando diretorio $caminhoSourceFJ"
+#mkdir "$caminhoSourceSB" -p
+#mkdir "$caminhoReleaseSB" -p
+#echo "SERVIDOR_GIT_SOURCE=https://github.com/salviof" > "$caminhoSourceSB/cliente.info"
 
-echo "SERVIDOR_GIT_RELEASE=https://github.com/salviof/NAO_IMPLEMENTADO" > $caminhoReleaseSB/cliente.info
+#echo "SERVIDOR_GIT_RELEASE=https://github.com/salviof/NAO_IMPLEMENTADO" > $caminhoReleaseSB/cliente.info
 
-cd "$caminhoSourceSB"
-git clone "$urlRepositorioSBFW"
+#cd "$caminhoSourceSB"
+#git clone "$urlRepositorioSBFW"
 
 
 mkdir $PASTA_TRABALHO_USUARIO -p
 echo "TRABALHO_ATUAL=\"Tarefa não Especificada\"" > $ARQUIVO_TRABALHO_USUARIO
-cd "$caminhoSBFW/manualImport"
-./instalaTema.sh
-./instalaMysql.sh
-cd "$caminhoSBFW/EditorImagem"
-./compilaProjeto.sh 
-cd $caminhoSBFW
-./compilaProjeto.sh 
-cd $caminhoSourceSB
-git clone https://github.com/salviof/SB_AdminTools.git
-cd $caminhoSourceSB/SB_AdminTools
-git clone https://github.com/salviof/SB_CRIADOR_COMPONENTE.git
-cd 
+#cd "$caminhoSBFW/manualImport"
+#./instalaTema.sh
+#./instalaMysql.sh
+#cd "$caminhoSBFW/EditorImagem"
+#./compilaProjeto.sh 
+#cd $caminhoSBFW
+#./compilaProjeto.sh 
+#cd $caminhoSourceSB
+#git clone https://github.com/salviof/SB_AdminTools.git
+#cd $caminhoSourceSB/SB_AdminTools
+#git clone https://github.com/salviof/SB_CRIADOR_COMPONENTE.git
+ 
 
-echo " ****** VERIFICANDO SSH ****** "
 
-echo "CAMINHO QUE SERÁ VERIFICADO " /home/$SUDO_USER/.ssh/*pub
-read
-ssh-keygen
-if ! ls /home/$SUDO_USER/.ssh/*pub
+
+alerta  "Procurando chave SSH em " /home/$USER/.ssh/*pub
+
+if ! ls /home/$USER/.ssh/*pub
         then
-       	echo "Parece que você ainda não tem uma chave publica de ssh :(.."
-	echo   "Siga as instruções para criar uma e poder acessar servidores ssh "
+      	alerta "Parece que você ainda não tem uma chave publica de ssh :(.."
+	alerta "Aperte enter para instalar gerar uma chave para o usuário $USER "
 	pause
-	echo " ****** VERIFICANDO SSH CD ****** "
-	sudo -H -u $SUDO_USER bash -c ssh-keygen
-	read
-	cd /home/$SUDO_USER/.ssh
-	read
-	
-	echo " ****** VERIFICANDO APOS GERAR KEY ****** "
-	git config --global --unset section.key
-	echo " ****** VERIFICANDO SSH APOS CONFIGURAR KEYGIT****** "
+	ssh-keygen	
+	#git config --global --unset section.key
 fi
 
-
-
+cp /home/superBits/superBitsDevOps/estacaoDeveloperOps/configNetBeans/Templates ~/.netbeans/8.2/config/ -R
