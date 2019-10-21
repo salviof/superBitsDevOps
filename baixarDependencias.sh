@@ -22,4 +22,5 @@ git clone https://github.com/salviof/SB_CRIADOR_COMPONENTE.git
 git clone https://github.com/salviof/Controle_Usuario_Basico.git
 git clone https://github.com/salviof/SB_AdminTools.git
 git clone https://github.com/salviof/SBProjetos.git
+git clone https://github.com/salviof/mktMauticIntegracao.git
 
