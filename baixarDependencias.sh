@@ -15,6 +15,9 @@ mkdir /home/superBits/projetos/coletivoJava/source/erpColetivoJava/ -p
 cd /home/superBits/projetos/coletivoJava/source/erpColetivoJava/
 git clone https://github.com/salviof/apiComunicacao.git  
 git clone https://github.com/salviof/SBErpGatewayPagamento.git
+git clone https://github.com/salviof/SbErpCodigoPostalBRApiFreeRedundante.git
+git clone https://github.com/salviof/SbErpCodigoPostalBR
+git clone https://github.com/salviof/SbErpCodigoPostalBRRepublicaVirtual.git
 cd /home/superBits/projetos/coletivoJava/source/
 mkdir /home/superBits/projetos/Super_Bits/source/ -p
 cd /home/superBits/projetos/Super_Bits/source/
