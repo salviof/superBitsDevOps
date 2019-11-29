@@ -61,11 +61,15 @@ arqSairSeArquivoNaoExistir ~/$ARQUIVONETBEANS "O arquivo não foi encontrado, ve
 chmod +x $ARQUIVONETBEANS
 cd ~
 ./$ARQUIVONETBEANS
+alerta "Configurando o Java_home do netbeans"
+setPropriedade netbeans_jdkhome /usr/java/$PASTA_SDK ~/netbeans-8.2/etc/netbeans.conf
 alerta "O sistema irá instalar o Git"
 sudo yum install git
 alerta "O sistema irá instalar o Maven"
 sudo yum install maven
 alerta "O sistema irá instalar o XmlStarlet (manipulador de xml via linha de comando)"
 sudo yum install xmlstarlet
-
+#lerta "Para concluir a instalação configure o JAVA_HOME para /usr/java/$PASTA_SDK em ~/netbeans-8.2/etc/netbeans.conf "
+#pause
+#vim ~/netbeans-8.2/etc/netbeans.conf
 

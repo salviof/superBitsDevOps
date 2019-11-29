@@ -68,6 +68,19 @@ function alerta() {
   
 }
 
+############################
+#Agradecimento a:https://gist.github.com/kongchen
+# uso: setPropriedade $key $value $filename
+# -> Caso não encontre a propriedade, nada acontece
+# -> Utiliza o diretorio ~ para criar um arquivo temporário
+# O awk, é um comando poderoso, semelhante ao sed, o paramero $0 representa uma linha inteira, e o operador "~" valida um regex, caso haja comentários na mesma linha da variavel, o comentário será apagado
+# você pode ver outros exemplos em https://likegeeks.com/awk-command/
+function setPropriedade(){
+  awk -v pat="^$1=" -v value="$1=$2" '{ if ($0 ~ pat) print value; else print $0; }' $3 > ~/configvar.tmp
+  mv ~/configvar.tmp $3
+}
+
+
 function alerta1() {
     pMensagem="$1"
     echo $ROSA
@@ -218,6 +231,8 @@ pMensagem=$2
 arqComandoExiste(){
  return type "$1" &> /dev/null ;
 }
+
+
 
 
 # forka isso, e pull requesta -> https://github.com/salviof/superBitsDevOps
