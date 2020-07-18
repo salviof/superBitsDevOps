@@ -69,6 +69,16 @@ alerta "O sistema irá instalar o Maven"
 sudo yum install maven
 alerta "O sistema irá instalar o XmlStarlet (manipulador de xml via linha de comando)"
 sudo yum install xmlstarlet
+sudo rpm -ivh mysql57-community-release-el7-9.noarch.rpm
+sudo yum -y install  mysql-server mysql-workbench
+sudo service mysqld start
+alerta "A senha padrão se encontra no arquivo /var/logs/mysqld.log"
+alerta "Utilize o Workbench para alterar a senha do desenvolvedor para: senhaDev#123"
+alerta "Não se preocupe, o Workbench irá solicitar uma nova senha assim que você adicionar uma nova conexao "
+alerta "O sistema irá exibir o log na sequencia "
+pause
+sudo cat /var/log/mysqld.log 
+
 #lerta "Para concluir a instalação configure o JAVA_HOME para /usr/java/$PASTA_SDK em ~/netbeans-8.2/etc/netbeans.conf "
 #pause
 #vim ~/netbeans-8.2/etc/netbeans.conf

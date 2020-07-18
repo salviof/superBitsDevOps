@@ -1,2 +1,2 @@
 cd $1
-chmod *.sh 
+chmod +x *.sh 
