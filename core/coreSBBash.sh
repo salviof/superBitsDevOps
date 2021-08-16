@@ -56,6 +56,7 @@ LPURPLE=$(echo -en '\033[01;35m')
 LCYAN=$(echo -en '\033[01;36m')
 WHITE=$(echo -en '\033[01;37m')
 ROSA=$(echo -en '\033[40m\033[1;35m')
+### Estilo padrão
 SBCORE_ESTILO_ORIGINAL='\033[0m'
 magenta='\x1b[97m'
 pink=$'\x1b[97m'
