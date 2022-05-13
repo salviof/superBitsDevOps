@@ -17,6 +17,8 @@ PROJETO=$2
 	alerta2 "Sincronizando projeto (pull seguido de git add all + push) em "$PASTA_PROJETOS/$PROJETO
 	cd $PASTA_PROJETOS/$PROJETO
 	./sincronizaGit.sh
+        git config credential.helper store
+
 	
 }
 
