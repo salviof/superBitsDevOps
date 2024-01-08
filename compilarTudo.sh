@@ -42,9 +42,10 @@ for PROJETO in "${!PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_FRAMEWORK[@]}"; do
 	PASTA_PROJETOS=${PASTAS_COLETIVO_JAVA_FW[$NOME_PASTA_PROJETO]}
 	compilarProjeto $PASTA_PROJETOS $PROJETO;
 done
-
-cd /home/superBits/projetos/Super_Bits/source/SB_CRIADOR_COMPONENTE/
-./atualizarWebAppSemTaglib.sh
-cd /home/superBits/projetos/Super_Bits/source/SB_AdminTools/webApp
-./empacotarModulo.sh
+alerta 'atualizacao do webAPP sem taglib desativada' 
+#cd /home/superBits/projetos/Super_Bits/source/SB_CRIADOR_COMPONENTE/
+#./atualizarWebAppSemTaglib.sh
+alerta 'empacotamento do modulo SBAdminTools desabilitado' 
+#cd /home/superBits/projetos/Super_Bits/source/SB_AdminTools/webApp
+#./empacotarModulo.sh
 
