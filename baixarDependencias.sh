@@ -18,15 +18,17 @@ PASTA_PROJETOS=$1
 PROJETO=$2
  	
 	alerta1 "Analizando projeto "$PASTA_PROJETOS/$PROJETO
-	if arqArquivoExiste '$CAMINHO_PROJETO_CORE/$PROJETO_CORE/.git/config'; 
+	alerta1 "Verificando existencia de: $PASTA_PROJETOS/$PROJETO/.git/config"
+	if arqArquivoExiste $PASTA_PROJETOS/$PROJETO/.git/config; 
         then 
-        cd $PASTA_PROJETOS
-	alerta2 'Clonando Repositorio https://github.com/salviof/'$PROJETO
-	git clone https://github.com/salviof/$PROJETO	
+          alerta2 'Atualizando Repositorio https://github.com/salviof/'$PROJETO
+	   cd $PASTA_PROJETOS/$PROJETO
+	   git pull
         else 
-	alerta2 'Atualizando Repositorio https://github.com/salviof/'$PROJETO
-	cd $PASTA_PROJETOS/$PROJETO
-	git pull
+	  cd $PASTA_PROJETOS
+	   alerta2 'Clonando Repositorio https://github.com/salviof/'$PROJETO
+	   git clone https://github.com/salviof/$PROJETO	
+	   
 	fi      	
 	arqSairSeArquivoExistir $PASTA_PROJETOS/$PROJETO 'Erro criando pasta em: '+$PASTA_PROJETOS/$PROJETO+' cheque as permissões'
 }
