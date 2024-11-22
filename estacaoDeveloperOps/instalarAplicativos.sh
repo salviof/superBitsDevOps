@@ -22,9 +22,18 @@ alerta "O sistema irá instalar o jdk8 64 bits"
 alerta "Em seguida o sistema irá perguntar qual "
 alerta "a configuração para o caminho padrão do comando java através do comando alternatives "
 pause
-ENDERECO_SDK=http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163
-ARQUIVO_SDK=jdk-8u131-linux-x64.rpm
-PASTA_SDK=jdk1.8.0_131
+
+sudo update-alternatives --install /usr/bin/java javac /usr/lib/jvm/jdk1.8.0_421/bin/java 1 
+sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_421/bin/javac 1 
+
+sudo update-alternatives --install /usr/bin/javaaws javac /usr/lib/jvm/jdk1.8.0_421/bin/javaws 1 
+sudo update-alternatives --install /usr/bin/jar javac /usr/lib/jvm/jdk1.8.0_421/bin/jar 1 
+
+
+
+ENDERECO_SDK=https://download.oracle.com/otn/java/jdk/8u421-b09/d8aa705069af427f9b83e66b34f5e380/
+ARQUIVO_SDK=jdk-8u421-linux-i586.rpm
+PASTA_SDK=jdk-8u421
 alerta "Baixando JDK 1.8 64 bits Oracle "]
 alerta "em : $ENDERECO_SDK/$ARQUIVO_SDK"
 

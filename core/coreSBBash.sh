@@ -60,6 +60,7 @@ ROSA=$(echo -en '\033[40m\033[1;35m')
 SBCORE_ESTILO_ORIGINAL='\033[0m'
 magenta='\x1b[97m'
 pink=$'\x1b[97m'
+E_BADARGS=85
 
 function alerta() {
     pMensagem="$1"
