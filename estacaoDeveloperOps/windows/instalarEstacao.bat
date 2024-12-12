@@ -20,6 +20,6 @@ git clone https://github.com/salviof/superBitsDevOps.git
 cd superBitsDevOps
 git pull
 cd estacaoDeveloperOps\docker
-docker build -t coletivojava:developer ./
+docker build -t coletivojava:developer  ./
 
 
