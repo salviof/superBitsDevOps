@@ -1,5 +1,5 @@
 @echo off
-# Verifica se a variável CLIENTE_BASE existe
+rem Verifica se a variável CLIENTE_BASE existe
  if not defined COLETIVO_JAVA_WORKSPACE (
     echo A variável CLIENTE_BASE não existe. Criando agora...
         setx COLETIVO_JAVA_WORKSPACE "%USERPROFILE%\coletivo_java" /M
