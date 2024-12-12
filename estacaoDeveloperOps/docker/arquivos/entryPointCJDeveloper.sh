@@ -9,8 +9,6 @@ git config --global user.name "$GIT_DESENVOLVEDOR_NOME"
 git config --global user.email "$GIT_DESENVOLVEDOR_EMAIL"
 git config --global user.password "$GIT_DESENVOLVEDOR_SENHA"
 git config --global credential.helper store
-WORKDIR /var/lib/jetty
-EXPOSE 8080
 /docker-entrypoint.sh java -jar /usr/local/jetty/start.jar
 
 
