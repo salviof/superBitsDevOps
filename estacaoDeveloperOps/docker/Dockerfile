@@ -14,7 +14,7 @@ RUN apt-get install vim -y
 RUN echo "Alterando dono do diretório, para usuário Atual"
 RUN git config --global credential.helper store
 COPY arquivos/instalacao.sh /home/superBits/instalacao.sh
-RUN /home/superBits/instalacao.sh
+#RUN /home/superBits/instalacao.sh
 #RUN bash <(curl -s https://raw.githubusercontent.com/salviof/FWColetivoJava/refs/heads/master/instalacaoAutomatica.sh)
 RUN  java -jar /home/servidorSBFW/timezone/tzupdater.jar -f -l file:///home/servidorSBFW/timezone/tzdata2024a.tar.gz
 RUN fc-cache -f -v
