@@ -73,10 +73,3 @@ PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_PROJETO_ERP_COMPLETO=(
 
 PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_PROJETO_ERP_COMPLETO_ORDEM=("SbErpCodigoPostalBRApiFreeRedundante" "SbErpCodigoPostalBRRepublicaVirtual" "SbErpCodigoPostalImportador" "SBErpGatewayPagamento" "SBErpIntegracaoSistemas" "SbErpTarefas" "SbErpTarefasClickup" "intAmazonShortMessageService" "intGatewayPgtoRede" "intMautic" "intRocketChat" "intERPRestful" "intERPRestfulTest" "intWordpress" "intMav" "intGoogleCalendar" "intClickup" "SbErpChat" "bErpChatMatrixOrg" "SbErpContaPagarReceber" "intGalaxPay" "intQrcodePix")
 
-echo "Exemplo lista"
-
-for projeto in "${PROJETOS_COLETIVO_JAVA_CORE_ORDEM[@]}"; do
-    pasta_projeto=${PROJETOS_COLETIVO_JAVA_CORE[$projeto]}
-    echo "Projeto: $projeto, Pasta: $pasta_projeto /n"
-done
-
