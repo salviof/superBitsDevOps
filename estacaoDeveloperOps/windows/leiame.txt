@@ -1,0 +1,18 @@
+
+O Framework de desenvolvimento do coletivo java √©um framerork para sistemas ERP baseado nas especifica√ß do Jakarta (Antigo JavaEE)
+
+
+Este arquivo √© um guia para preparar sua esta√√o de trabalho no sistema operacional Windows.
+
+Antes de iniciar a instala√√o instale:
+
+curl (nativo no windows 10 a partir da vers√£o 1803)
+terminal for windows (Fornecido pela microsoft, dispon√vel na microsoft store)
+Docker desktop
+
+em seguida execute o seguinte comando:
+
+curl -s https://raw.githubusercontent.com/salviof/superBitsDevOps/main/estacaoDeveloperOps/windows/instalarEstacao.bat | cmd
+
+
+
