@@ -1,11 +1,16 @@
 @echo off
 rem Verifica se a variável CLIENTE_BASE existe
  if not defined COLETIVO_JAVA_WORKSPACE (
-    echo A variável CLIENTE_BASE não existe. Criando agora...
+    echo A variávelCOLETIVO_JAVA_WORKSPACE não existe. Criando agora...
+	rem Solicita o nome do usuário e define "Desconhecido" como valor padrão
+	set /p diretorioPadrao= Deseja personalizar o seu diret�rio de trabalho? [%USERPROFILE%\coletivo_java]: 
+	rem
+	rem rem Se o usuário não digitar nada, o valor padrão será atribuído
+	if "%diretorioPadrao%"=="" set diretorioPadrap=%USERPROFILE%\coletivo_java
         setx COLETIVO_JAVA_WORKSPACE "%USERPROFILE%\coletivo_java" /M
-        echo CLIENTE_BASE criada com sucesso!
+        echo COLETIVO_JAVA_WORKSPACE crida com sucesso
      ) else (
-         echo A variávelCOLETIVO_JAVA_WORKSPACE já existe com o valor:COLETIVO_JAVA_WORKSPACE%
+         echo variavel de ambiente COLETIVO_JAVA_WORKSPACE já existe com o valor: %COLETIVO_JAVA_WORKSPACE%
      )
 pause
 
