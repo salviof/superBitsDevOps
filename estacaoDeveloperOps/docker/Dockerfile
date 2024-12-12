@@ -19,6 +19,9 @@ COPY arquivos/instalacao.sh /home/superBits/instalacao.sh
 RUN  java -jar /home/servidorSBFW/timezone/tzupdater.jar -f -l file:///home/servidorSBFW/timezone/tzdata2024a.tar.gz
 RUN fc-cache -f -v
 COPY arquivos/entryPointCJDeveloper.sh /bin/entryPointCJDeveloper.sh
+
+RUN sed -i 's/\r//g' /bin/entryPointCJDeveloper.sh
+RUN sed -i 's/\r//g' /home/superBits/instalacao.sh
 EXPOSE 8080
 #ENTRYPOINT ["/bin/entryPointCJDeveloper.sh"]
 
