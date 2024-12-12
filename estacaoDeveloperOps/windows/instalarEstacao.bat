@@ -14,4 +14,12 @@ rem Verifica se a variável CLIENTE_BASE existe
      )
 pause
 
+if not exist %COLETIVO_JAVA_WORKSPACE% mkdir  %COLETIVO_JAVA_WORKSPACE%
+cd %COLETIVO_JAVA_WORKSPACE%
+git clone https://github.com/salviof/superBitsDevOps.git
+cd superBitsDevOps
+git pull
+cd estacaoDeveloperOps\docker
+docker build -t coletivojava:developer ./
+
 
