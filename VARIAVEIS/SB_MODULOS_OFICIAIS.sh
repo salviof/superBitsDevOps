@@ -27,20 +27,23 @@ PROJETOS_COLETIVO_JAVA_CORE=(
 ["SBWebPaginas"]="PASTA_COLETIVO_JAVA_FRAMEWORK"
 ["FWColetivoJava"]="PASTA_COLETIVO_JAVA_FRAMEWORK"
 )
-
+PROJETOS_COLETIVO_JAVA_CORE_ORDEM=("MTFN" "reflections" "SBApiCore" "SBCore"
+ "SbErpCodigoPostalBR" "SBTeste" "SBServlets" "SBRestClient" "SBRestClientTestes" "util" "SBPersistencia" "SBAcessosModel"
+ "apiComunicacao" "SBErpGatewayPagamento" "SBWebPaginas" "FWColetivoJava")
 declare -A PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_FRAMEWORK
 PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_FRAMEWORK=(
 ["SB_CRIADOR_COMPONENTE"]="PASTA_COLETIVO_JAVA_FERRAMENTAS"
 )
-
+PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_FRAMEWORK_ORDEM=("SB_CRIADOR_COMPONENTE")
 declare -A PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_PROJETO
 PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_PROJETO=(
 ["SB_AdminTools"]="PASTA_COLETIVO_JAVA_FERRAMENTAS"
 ["SBProjetos"]="PASTA_COLETIVO_JAVA_FERRAMENTAS"
 ["SBAplicacaoModelo"]="PASTA_COLETIVO_JAVA_DEPENDENCIAS_EXTERNAS_CORE" #todo mover para ferramentas
-#["Controle_Usuario_Basico"]="PASTA_COLETIVO_JAVA_FERRAMENTAS" depreciado
+["Controle_Usuario_Basico"]="PASTA_COLETIVO_JAVA_FERRAMENTAS" #depreciado
 )
 
+PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_PROJETO_ORDEM=("SB_AdminTools" "SBProjetos" "SBAplicacaoModelo" "Controle_Usuario_Basico")
 
 declare -A PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_PROJETO_ERP_COMPLETO
 PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_PROJETO_ERP_COMPLETO=(
@@ -62,10 +65,18 @@ PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_PROJETO_ERP_COMPLETO=(
 ["intGoogleCalendar"]="PASTA_COLETIVO_JAVA_INTEGRACOES"
 ["intClickup"]="PASTA_COLETIVO_JAVA_INTEGRACOES"
 ["SbErpChat"]="PASTA_COLETIVO_JAVA_ERP"
-["bErpChatMatrixOrg"="PASTA_COLETIVO_JAVA_ERP"
+["bErpChatMatrixOrg"]="PASTA_COLETIVO_JAVA_ERP"
 ["SbErpContaPagarReceber"]="PASTA_COLETIVO_JAVA_ERP"
 ["intGalaxPay"]="PASTA_COLETIVO_JAVA_INTEGRACOES"
 ["intQrcodePix"]="PASTA_COLETIVO_JAVA_INTEGRACOES"
 )
 
+PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_PROJETO_ERP_COMPLETO_ORDEM=("SbErpCodigoPostalBRApiFreeRedundante" "SbErpCodigoPostalBRRepublicaVirtual" "SbErpCodigoPostalImportador" "SBErpGatewayPagamento" "SBErpIntegracaoSistemas" "SbErpTarefas" "SbErpTarefasClickup" "intAmazonShortMessageService" "intGatewayPgtoRede" "intMautic" "intRocketChat" "intERPRestful" "intERPRestfulTest" "intWordpress" "intMav" "intGoogleCalendar" "intClickup" "SbErpChat" "bErpChatMatrixOrg" "SbErpContaPagarReceber" "intGalaxPay" "intQrcodePix")
+
+echo "Exemplo lista"
+
+for projeto in "${PROJETOS_COLETIVO_JAVA_CORE_ORDEM[@]}"; do
+    pasta_projeto=${PROJETOS_COLETIVO_JAVA_CORE[$projeto]}
+    echo "Projeto: $projeto, Pasta: $pasta_projeto /n"
+done
 
