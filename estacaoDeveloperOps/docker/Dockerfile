@@ -20,6 +20,6 @@ RUN  java -jar /home/servidorSBFW/timezone/tzupdater.jar -f -l file:///home/serv
 RUN fc-cache -f -v
 COPY arquivos/entryPointCJDeveloper.sh /bin/entryPointCJDeveloper.sh
 EXPOSE 8080
-#ENTRYPOINT ["/bin/entryPointCJDeveloper.sh"]
+ENTRYPOINT ["/bin/entryPointCJDeveloper.sh"]
 
 
