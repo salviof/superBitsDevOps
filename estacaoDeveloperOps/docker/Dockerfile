@@ -18,7 +18,7 @@ COPY arquivos/instalacao.sh /home/superBits/instalacao.sh
 #RUN bash <(curl -s https://raw.githubusercontent.com/salviof/FWColetivoJava/refs/heads/master/instalacaoAutomatica.sh)
 RUN  java -jar /home/servidorSBFW/timezone/tzupdater.jar -f -l file:///home/servidorSBFW/timezone/tzdata2024a.tar.gz
 RUN fc-cache -f -v
-COPY arquivos/entryPointCJDeveloper.sh /bin/
+COPY arquivos/entryPointCJDeveloper.sh /bin/entryPointCJDeveloper.sh
 EXPOSE 8080
 ENTRYPOINT ["/bin/entryPointCJDeveloper.sh"]
 
