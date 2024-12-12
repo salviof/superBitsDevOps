@@ -20,6 +20,12 @@ git clone https://github.com/salviof/superBitsDevOps.git
 cd superBitsDevOps
 git pull
 cd estacaoDeveloperOps\docker
+echo "Legal, j√° configuramos a sua pasta de trabalho e baixamos os scritps de deve ops, no preposit√rio https://github.com/salviof/superBitsDevOps.git "
+echo "Agora Vamos compilar a imagem docker que ir√ realizar todas opera√√es de devops"
+echo "seus projetos devem ser criados em  %COLETIVO_JAVA_WORKSPACE%\projetos\nomeDaEmpresa\source\nomeProjeto"
+
+pause 
+
 docker build -t coletivojava:developer  ./
 
 
