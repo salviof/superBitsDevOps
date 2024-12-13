@@ -17,7 +17,8 @@ PROJETO=$2
 	mvn clean install -DskipTests=true 	
 	
 }
-
+cd /home/superBits/projetos/coletivoJava/source/integracao/intMatrixChat/
+./dependenciaEmbarcada.sh
 for PROJETO in "${PROJETOS_COLETIVO_JAVA_CORE_ORDEM[@]}"; do
 	NOME_PASTA_PROJETO=${PROJETOS_COLETIVO_JAVA_CORE[$PROJETO]}
 	PASTA_PROJETOS=${PASTAS_COLETIVO_JAVA_FW[$NOME_PASTA_PROJETO]}
