@@ -21,11 +21,43 @@ cd superBitsDevOps
 git pull
 cd estacaoDeveloperOps\docker
 echo "Legal, jÃ¡ configuramos a sua pasta de trabalho e baixamos os scritps de deve ops, no prepositÃrio https://github.com/salviof/superBitsDevOps.git "
-echo "Agora Vamos compilar a imagem docker que irÃ realizar todas operaÃÃes de devops"
+echo "Agora Vamos compilar a imagem docker que ir� realizar todas operaÃÃes de devops"
 echo "seus projetos devem ser criados em  %COLETIVO_JAVA_WORKSPACE%\projetos\nomeDaEmpresa\source\nomeProjeto"
 
 pause 
 
 docker build -t coletivojava:developer  ./
+
+
+echo "arquivo env n�o encontrado em %COLETIVO_JAVA_WORKSPACE%\desenvolvedor\.env
+
+echo "Vamos te ajudar a configurar as variaveis importantes para opera��es devops ok?"
+set /p "user_input=Digite um valor (padrão:%USER_NAME%): "
+if not defined user_input set "CJ_DESENVOLVEDOR_NOME=%USER_NAME%"
+if defined user_input= set CJ_DESENVOLVEDOR_NOME=%user_input%;
+echo 
+set /p "mail_input=Digite seu email"
+if not defined mail_input set CJ_DESENVOLVEDOR_EMAIL="desenvolvedorAnonimo@coletivojava.com.br"
+if defined mail_input= set CJ_DESENVOLVEDOR_EMAIL=%mail_input%;
+echo
+
+echo Primeira frase >  %COLETIVO_JAVA_WORKSPACE%\desenvolvedor\.env
+
+echo "GIT_REPOSITORIO_PROJETOS=https://github.com/salviof" >  %COLETIVO_JAVA_WORKSPACE%\desenvolvedor\.env
+echo "GIT_DESENVOLVEDOR_NOME=Sálvio Furbino" >>  %COLETIVO_JAVA_WORKSPACE%\desenvolvedor\.env
+echo "GIT_DESENVOLVEDOR_EMAIL=salviof@gmail.com" >>  %COLETIVO_JAVA_WORKSPACE%\desenvolvedor\.env
+
+echo "GIT_DESENVOLVEDOR_SENHA="
+echo "DIRETORIO_PASTA_DE_TRABALHO=%COLETIVO_JAVA_WORKSPACE%\projetos" >>  %COLETIVO_JAVA_WORKSPACE%\desenvolvedor\.env
+echo "SLUG_CLIENTE=labColetivoJava" >>  %COLETIVO_JAVA_WORKSPACE%\desenvolvedor\.env
+echo "SENHA_ADMIN_INTRANET=senhaDev#123" >>  %COLETIVO_JAVA_WORKSPACE%\desenvolvedor\.env
+echo "DOMINIO_PRODUCAO=localhost" >>  %COLETIVO_JAVA_WORKSPACE%\desenvolvedor\.env
+echo "DOMINIO_HOMOLOGACAO=localhost" >>  %COLETIVO_JAVA_WORKSPACE%\desenvolvedor\.env
+echo "ESTAGIO_PROJETO=DESENVOLVIMENTO" >>  %COLETIVO_JAVA_WORKSPACE%\desenvolvedor\.env
+echo "PORTA_HOMOLOGACAO=8666" >>  %COLETIVO_JAVA_WORKSPACE%\desenvolvedor\.env
+echo "PORTA_DEBUG=9666" >>  %COLETIVO_JAVA_WORKSPACE%\desenvolvedor\.env
+echo "PORTA_WEB_ADMIN=8086" >>  %COLETIVO_JAVA_WORKSPACE%\desenvolvedor\.env
+echo "PORTA_BANCO_DADOS=3366" >> %COLETIVO_JAVA_WORKSPACE%\desenvolvedor\.env
+
 
 
