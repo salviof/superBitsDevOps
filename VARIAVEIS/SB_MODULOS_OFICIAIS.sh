@@ -30,9 +30,9 @@ PROJETOS_COLETIVO_JAVA_CORE=(
 ["SBWebPaginas"]="PASTA_COLETIVO_JAVA_FRAMEWORK"
 ["FWColetivoJava"]="PASTA_COLETIVO_JAVA_FRAMEWORK"
 )
-PROJETOS_COLETIVO_JAVA_CORE_ORDEM=("MTFN" "reflections" "SBApiCore" "apiComunicacao" "SBCore"
- "SbErpCodigoPostalBR" "SBTeste" "SBServlets" "SBRestClient" "SBRestClientTestes" "util" "SBPersistencia" "SBAcessosModel"
- "apiComunicacao" "SBErpGatewayPagamento" "SBWebPaginas" "FWColetivoJava")
+PROJETOS_COLETIVO_JAVA_CORE_ORDEM=("MTFN" "reflections" "SBApiCore" "apiComunicacao" 
+ "SbErpCodigoPostalBR" "SBCore" "SBTeste" "util" "SBPersistencia" "SBServlets" "SBRestClientTestes" "SBRestClient"  "SBAcessosModel"
+ "SBErpGatewayPagamento" "SBErpIntegracaoSistemas" "SBWebPaginas" "FWColetivoJava")
 declare -A PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_FRAMEWORK
 PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_FRAMEWORK=(
 ["SB_CRIADOR_COMPONENTE"]="PASTA_COLETIVO_JAVA_FERRAMENTAS"
