@@ -76,5 +76,5 @@ PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_PROJETO_ERP_COMPLETO=(
 ["intQrcodePix"]="PASTA_COLETIVO_JAVA_INTEGRACOES"
 )
 
-PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_PROJETO_ERP_COMPLETO_ORDEM=("SbErpCodigoPostalBRApiFreeRedundante" "SbErpCodigoPostalBRRepublicaVirtual" "SbErpCodigoPostalImportador" "SBErpGatewayPagamento" "SBErpIntegracaoSistemas" "SbErpTarefas" "SbErpTarefasClickup" "intAmazonShortMessageService" "intGatewayPgtoRede" "intMautic" "intRocketChat" "intERPRestful" "intERPRestfulTest" "intWordpress" "intMav" "intGoogleCalendar" "intClickup" "SbErpChat" "SbErpChatMatrixOrg" "SbErpContaPagarReceber" "intGalaxPay" "intQrcodePix","intMatrixChat","intWhatsapp")
+PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_PROJETO_ERP_COMPLETO_ORDEM=("SbErpCodigoPostalBRApiFreeRedundante" "SbErpCodigoPostalBRRepublicaVirtual" "SbErpCodigoPostalImportador" "SBErpGatewayPagamento" "SBErpIntegracaoSistemas" "SbErpTarefas" "SbErpTarefasClickup" "intAmazonShortMessageService" "intGatewayPgtoRede" "intMautic" "intRocketChat" "intERPRestful" "intERPRestfulTest" "intWordpress" "intMav" "intGoogleCalendar" "intClickup" "SbErpChat" "SbErpChatMatrixOrg" "SbErpContaPagarReceber" "intGalaxPay" "intQrcodePix" "intMatrixChat" "intWhatsapp")
 
