@@ -41,8 +41,8 @@ if not defined mail_input set CJ_DESENVOLVEDOR_EMAIL="desenvolvedorAnonimo@colet
 if defined mail_input= set CJ_DESENVOLVEDOR_EMAIL=%mail_input%;
 echo
 
-set /p "mail_input=Digite seu email"
-if not defined senha_input set CJ_DESENVOLVEDOR_SENHA="desenvolvedorAnonimo@coletivojava.com.br"
+set /p "mail_input=Se tiver uma conta no git, e quiser automatizar commits, configure uma senha para o git"
+if not defined senha_input set CJ_DESENVOLVEDOR_SENHA="ObtenhaSuaSenhaNoGit_emConfiguracoes_do_desenvolvedor_chaves_de_acesso"
 if defined senha_input= set CJ_DESENVOLVEDOR_SENHA=%senha_input%;
 echo
 
