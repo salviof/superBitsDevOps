@@ -27,7 +27,7 @@ PROJETO=$2
 	   cd $PASTA_PROJETOS/$PROJETO
 	   git pull
         else 
-	   mkdir $PASTA_PROJETOS -s
+	   mkdir $PASTA_PROJETOS -p
 	   cd $PASTA_PROJETOS
 	   alerta2 'Clonando Repositorio https://github.com/salviof/'$PROJETO
 	   git clone https://github.com/salviof/$PROJETO
