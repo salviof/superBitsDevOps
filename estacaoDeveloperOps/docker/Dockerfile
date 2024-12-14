@@ -6,6 +6,7 @@ COPY arquivos/entryPointCJDeveloper.sh /bin/entryPointCJDeveloper.sh
 
 #VOLUME /home/servidorSBFW/arquivosDeEntidade
 USER root
+RUN echo "Olá Mundo!"
 RUN mkdir -p  /home/servidorSBFW/arquivosDeEntidade  && chgrp jetty /home/servidorSBFW/arquivosDeEntidade
 ENV TZ=America/Sao_Paulo
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
@@ -26,13 +27,13 @@ WORKDIR /home/superBits/superBitsDevOps
 RUN git pull
 RUN /bin/bash -e /home/superBits/superBitsDevOps/dependenciasAplicativosBase.sh 
 RUN /bin/bash -e /home/superBits/superBitsDevOps/baixarDependencias.sh 
-RUN /bin/bash -e /home/superBits/superBitsDevOps/compilarTudo.sh
+#RUN /bin/bash -e /home/superBits/superBitsDevOps/compilarTudo.sh
 WORKDIR /home/superBits 
 
 #RUN sed -i 's/\r//g' /home/superBits/instalacao.sh
 #RUN /home/superBits/instalacao.sh
 #RUN bash <(curl -s https://raw.githubusercontent.com/salviof/FWColetivoJava/refs/heads/master/instalacaoAutomatica.sh)
 RUN  java -jar /home/servidorSBFW/timezone/tzupdater.jar -f -l file:///home/servidorSBFW/timezone/tzdata2024a.tar.gz
-RUN /bin/bash -e /home/superBits/instalacao.sh
+#RUN /bin/bash -e /home/superBits/instalacao.sh
 EXPOSE 8080
 #ENTRYPOINT ["/bin/entryPointCJDeveloper.sh"]
