@@ -25,7 +25,7 @@
 #
 # Curiosidade: A primeira versão do  Shell script foi criada em 1975 por S.R Bourne, em 1989 a fundação GNU adotou e evoluiu
 # este projeto. com objetivo de poder fazer TUDO oque você quiser via linha de comando.
-# Bash significa: (Bourne Again Shell) em homenagem ao Sr Bourne.
+# Bash significa: (Bourne Again Shell), um trocadilho de Bourne Again (Renascido) em homenagem ao Sr Bourne.
 # Dizem que os programadores que utilizam Bash são incrivelmente mais poderosos do que aqueles acostumandos apenas com 
 # as linhas de commando do Windows. A microsof tem muita vontade de incluir o Bash no sistema operacional, mas
 # um bash script sem uma infinidade de aplicativos feitos para comunicar com a ferramenta não é muito útil.
