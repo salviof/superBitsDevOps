@@ -177,11 +177,10 @@ arqArquivoExiste() {
 ###################################################
 
 arqSairSeArquivoNaoExistir(){
-pDiretorio=$1
+pArquivo=$1
 pMensagem=$2
- if [ -f "$pDiretorio" ]
-  then
-   
+ if [ -f "$pArquivo" ]
+  then 
     return 0 
   else
    alerta $pMensagem
@@ -190,15 +189,14 @@ pMensagem=$2
 }
 
 arqSairSeArquivoExistir(){
-pDiretorio=$1
+pArquivo=$1
 pMensagem=$2
- if [ -f "$pDiretorio" ]
+ if [ -f "$pArquivo" ]
   then
-   alerta "$pMensagem"
-   exit  
+     alerta "$pMensagem"
+     exit 500 
   else
-  return 1 
-   
+     return 1  
   fi
 
 }
@@ -211,7 +209,7 @@ pMensagem=$2
     return 0 
   else
    alerta "$pMensagem"
-   exit 
+   exit 500
   fi
 
 }

@@ -10,7 +10,7 @@ for PASTA_PROJETO in "${!PASTAS_COLETIVO_JAVA_FW[@]}"; do
 	CAMINHO_PASTA_PROJETO=${PASTAS_COLETIVO_JAVA_FW[$PASTA_PROJETO]}
 	alerta "Criando pasta $CAMINHO_PASTA_PROJETO";
        	mkdir $CAMINHO_PASTA_PROJETO -p
-	arqSairSeArquivoExistir $CAMINHO_PASTA_PROJETO 'Erro criando pasta em: '+$CAMINHO_PASTA_PROJETO+' cheque as permissões'
+	arqSairSePastaNaoExistir $CAMINHO_PASTA_PROJETO 'Erro criando pasta em: '+$CAMINHO_PASTA_PROJETO+' cheque as permissões'
 done
 
 atualizarProjeto(){
@@ -21,16 +21,17 @@ PROJETO=$2
 	alerta1 "Verificando existencia de: $PASTA_PROJETOS/$PROJETO/.git/config"
 	if arqArquivoExiste $PASTA_PROJETOS/$PROJETO/.git/config; 
         then 
-          alerta2 'Atualizando Repositorio https://github.com/salviof/'$PROJETO
+           alerta2 'Atualizando Repositorio https://github.com/salviof/'$PROJETO
 	   cd $PASTA_PROJETOS/$PROJETO
 	   git pull
         else 
-	  cd $PASTA_PROJETOS
+	   mkdir $PASTA_PROJETOS -s
+	   cd $PASTA_PROJETOS
 	   alerta2 'Clonando Repositorio https://github.com/salviof/'$PROJETO
 	   git clone https://github.com/salviof/$PROJETO
 	fi      	
 	alerta2 "Verificando se a pasta foi criada com sucesso em "$PASTA_PROJETOS/$PROJETO
-        arqSairSeArquivoExistir $PASTA_PROJETOS/$PROJETO/.git/config 'Erro criando pasta '$PROJETO' em: '$PASTA_PROJETOS' via git clone cheque as permissões'
+        arqSairSeArquivoNaoExistir $PASTA_PROJETOS/$PROJETO/.git/config 'Erro criando pasta '$PROJETO' em: '$PASTA_PROJETOS' via git clone cheque as permissões'
 }
 
 
