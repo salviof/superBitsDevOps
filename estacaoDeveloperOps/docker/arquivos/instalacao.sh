@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-
 mkdir /home/superBits -p
 ls /home/superBits
 cd /home/superBits 

@@ -30,7 +30,7 @@ PROJETO=$2
 	   git clone https://github.com/salviof/$PROJETO
 	fi      	
 	alerta2 "Verificando se a pasta foi criada com sucesso em "$PASTA_PROJETOS/$PROJETO
-        arqSairSeArquivoExistir $PASTA_PROJETOS/$PROJETO 'Erro criando pasta '$PROJETO' em: '$PASTA_PROJETOS' via git clone cheque as permissões'
+        arqSairSeArquivoExistir $PASTA_PROJETOS/$PROJETO/.git/config 'Erro criando pasta '$PROJETO' em: '$PASTA_PROJETOS' via git clone cheque as permissões'
 }
 
 
