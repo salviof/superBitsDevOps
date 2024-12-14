@@ -21,16 +21,15 @@ PROJETO=$2
 	alerta1 "Verificando existencia de: $PASTA_PROJETOS/$PROJETO/.git/config"
 	if arqArquivoExiste $PASTA_PROJETOS/$PROJETO/.git/config; 
         then 
-          alerta2 'Atualizando Repositorio https://github.com/salviof/'$PROJETO
+          alerta2 'Atualizando Repositorio https://github.com/salviof/$PROJETO'
 	   cd $PASTA_PROJETOS/$PROJETO
 	   git pull
         else 
 	  cd $PASTA_PROJETOS
-	   alerta2 'Clonando Repositorio https://github.com/salviof/'$PROJETO
-	   git clone https://github.com/salviof/$PROJETO	
-	   
+	   alerta2 'Clonando Repositorio https://github.com/salviof/$PROJETO'
+	   git clone https://github.com/salviof/$PROJETO	   
 	fi      	
-	arqSairSeArquivoExistir $PASTA_PROJETOS/$PROJETO 'Erro criando pasta em: '+$PASTA_PROJETOS/$PROJETO+' cheque as permissões'
+	arqSairSeArquivoExistir $PASTA_PROJETOS/$PROJETO 'Erro criando pasta '+$PROJETO+' em: '+$PASTA_PROJETOS+' via git clone cheque as permissões'
 }
 
 
