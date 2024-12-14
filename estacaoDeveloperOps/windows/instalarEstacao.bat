@@ -45,7 +45,7 @@ set /p "mail_input=Se tiver uma conta no git, e quiser automatizar commits, conf
 if not defined senha_input set CJ_DESENVOLVEDOR_SENHA="ObtenhaSuaSenhaNoGit_emConfiguracoes_do_desenvolvedor_chaves_de_acesso"
 if defined senha_input= set CJ_DESENVOLVEDOR_SENHA=%senha_input%;
 echo
-
+	
 echo Primeira frase >  %COLETIVO_JAVA_WORKSPACE%\desenvolvedor\.env
 
 echo "GIT_REPOSITORIO_PROJETOS=https://github.com/salviof" >  %COLETIVO_JAVA_WORKSPACE%\desenvolvedor\.env

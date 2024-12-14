@@ -18,7 +18,18 @@ RUN fc-cache -f -v
 RUN echo "Alterando dono do diretório, para usuário Atual"
 RUN git config --global credential.helper store
 RUN sed -i 's/\r//g' /bin/entryPointCJDeveloper.sh
-RUN sed -i 's/\r//g' /home/superBits/instalacao.sh
+RUN mkdir /home/superBits -p
+RUN ls /home/superBits
+WORKDIR /home/superBits 
+RUN git clone https://github.com/salviof/superBitsDevOps.git 
+WORKDIR /home/superBits/superBitsDevOps 
+RUN git pull
+RUN /bin/bash -e /home/superBits/superBitsDevOps/dependenciasAplicativosBase.sh 
+RUN /bin/bash -e /home/superBits/superBitsDevOps/baixarDependencias.sh 
+RUN /bin/bash -e /home/superBits/superBitsDevOps/compilarTudo.sh
+WORKDIR /home/superBits 
+
+#RUN sed -i 's/\r//g' /home/superBits/instalacao.sh
 #RUN /home/superBits/instalacao.sh
 #RUN bash <(curl -s https://raw.githubusercontent.com/salviof/FWColetivoJava/refs/heads/master/instalacaoAutomatica.sh)
 RUN  java -jar /home/servidorSBFW/timezone/tzupdater.jar -f -l file:///home/servidorSBFW/timezone/tzdata2024a.tar.gz
