@@ -20,8 +20,8 @@ git clone https://github.com/salviof/superBitsDevOps.git
 cd superBitsDevOps
 git pull
 cd estacaoDeveloperOps\docker
-echo "Legal, jÃƒÂ¡ configuramos a sua pasta de trabalho e baixamos os scritps de deve ops, no prepositÃƒrio https://github.com/salviof/superBitsDevOps.git "
-echo "Agora Vamos compilar a imagem docker que irÃ realizar todas operaÃƒÃƒes de devops"
+echo "Legal, já configuramos a sua pasta de trabalho e baixamos os scritps de deve ops, no prepositório https://github.com/salviof/superBitsDevOps.git "
+echo "Agora Vamos compilar a imagem docker que irÃ realizar todas operações de devops"
 echo "seus projetos devem ser criados em  %COLETIVO_JAVA_WORKSPACE%\projetos\nomeDaEmpresa\source\nomeProjeto"
 
 pause 
@@ -41,13 +41,18 @@ if not defined mail_input set CJ_DESENVOLVEDOR_EMAIL="desenvolvedorAnonimo@colet
 if defined mail_input= set CJ_DESENVOLVEDOR_EMAIL=%mail_input%;
 echo
 
+set /p "mail_input=Digite seu email"
+if not defined senha_input set CJ_DESENVOLVEDOR_SENHA="desenvolvedorAnonimo@coletivojava.com.br"
+if defined senha_input= set CJ_DESENVOLVEDOR_SENHA=%senha_input%;
+echo
+
 echo Primeira frase >  %COLETIVO_JAVA_WORKSPACE%\desenvolvedor\.env
 
 echo "GIT_REPOSITORIO_PROJETOS=https://github.com/salviof" >  %COLETIVO_JAVA_WORKSPACE%\desenvolvedor\.env
 echo "GIT_DESENVOLVEDOR_NOME=SÃ¡lvio Furbino" >>  %COLETIVO_JAVA_WORKSPACE%\desenvolvedor\.env
 echo "GIT_DESENVOLVEDOR_EMAIL=salviof@gmail.com" >>  %COLETIVO_JAVA_WORKSPACE%\desenvolvedor\.env
 
-echo "GIT_DESENVOLVEDOR_SENHA="
+echo "GIT_DESENVOLVEDOR_SENHA=%CJ_DESENVOLVEDOR_SENHA%"
 echo "DIRETORIO_PASTA_DE_TRABALHO=%COLETIVO_JAVA_WORKSPACE%\projetos" >>  %COLETIVO_JAVA_WORKSPACE%\desenvolvedor\.env
 echo "SLUG_CLIENTE=labColetivoJava" >>  %COLETIVO_JAVA_WORKSPACE%\desenvolvedor\.env
 echo "SENHA_ADMIN_INTRANET=senhaDev#123" >>  %COLETIVO_JAVA_WORKSPACE%\desenvolvedor\.env
