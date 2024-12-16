@@ -1,0 +1,56 @@
+services:
+  banco_rel_intranet:
+    env_file: 
+      - c:\home\superBits\desenvolvedor\variaveisDesenvolvedor
+    container_name: mysql_${SLUG_CLIENTE}
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: ${SENHA_ADMIN_INTRANET}
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: db`root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_PASSWORD: ${SENHA_ADMIN_INTRANET}
+      MYSQL_ROOT_HOST: "%"
+    ports:
+      - "3306"
+    volumes:
+      - ${DIRETORIO_PASTA_DE_TRABALHO}\desenvolvedor\bancorelacional:/var/lib/mysql:Z
+    restart: always
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin${SLUG_CLIENTE}
+    env_file: 
+      - C:\home\superBits\desenvolvedor\variaveisDesenvolvedor
+    environment:
+     - PMA_HOSTS=banco_rel_intranet
+     - PMA_USER=root
+     - PMA_PASSWORD=${SENHA_ADMIN_INTRANET}
+    restart: always
+    ports:
+     - "${PORTA_BANCO_DADOS}:80"
+    depends_on:
+     - banco_rel_intranet
+  intranet_web_app:
+    build: ./javaee_app
+    container_name: coletivo_java_developer
+    image: coletivojava:developer
+    env_file: 
+      - C:\home\superBits\desenvolvedor\variaveisDesenvolvedor
+    restart: always
+    environment:
+     - DOMINIO_PRODUCAO=${DOMINIO_PRODUCAO}
+     - DOMINIO_HOMOLOGACAO=${DOMINIO_HOMOLOGACAO}
+     - ESTAGIO_PROJETO=${ESTAGIO_PROJETO}
+     - PROJETO_ADMIN_SENHA=${SENHA_ADMIN_INTRANET}
+     - GIT_REPOSITORIO_PROJETOS=${GIT_REPOSITORIO_PROJETOS}
+     - GIT_DESENVOLVEDOR_NOME=${GIT_DESENVOLVEDOR_NOME}
+     - GIT_DESENVOLVEDOR_EMAIL=${GIT_DESENVOLVEDOR_EMAIL}
+     - GIT_DESENVOLVEDOR_SENHA=${GIT_DESENVOLVEDOR_SENHA}
+    ports:
+      - "${PORTA_HOMOLOGACAO}:8081"
+      - "${PORTA_DEBUG}:8080"
+      - "${PORTA_WEB_ADMIN}:8666"
+    depends_on:
+    -  banco_rel_intranet
+    volumes:
+      - ${DIRETORIO_PASTA_DE_TRABALHO}\arquivosProjetoPub:/home/servidorSBFW/arquivosDeEntidade:z
