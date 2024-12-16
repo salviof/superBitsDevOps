@@ -31,7 +31,7 @@ RUN /bin/bash -e /home/superBits/superBitsDevOps/baixarDependencias.sh
 #WORKDIR /home/superBits/projetos/coletivoJava/source/integracao/intMatrixChat/
 #RUN ./dependenciaEmbarcada.sh
 WORKDIR /home/superBits/superBitsDevOps
-RUN /bin/bash -e /home/superBits/superBitsDevOps/compilarTudo.sh
+#RUN /bin/bash -e /home/superBits/superBitsDevOps/compilarTudo.sh
 WORKDIR /home/superBits 
 
 #RUN sed -i 's/\r//g' /home/superBits/instalacao.sh
