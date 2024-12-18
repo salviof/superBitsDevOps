@@ -21,7 +21,7 @@ RUN git config --global credential.helper store
 RUN sed -i 's/\r//g' /bin/entryPointCJDeveloper.sh
 RUN mkdir /home/superBits -p
 RUN ls /home/superBits
-WORKDIR /home/superBits 
+WORKDIR /home/superBits
 RUN git clone https://github.com/salviof/superBitsDevOps.git 
 WORKDIR /home/superBits/superBitsDevOps 
 RUN git pull
@@ -31,7 +31,11 @@ RUN /bin/bash -e /home/superBits/superBitsDevOps/baixarDependencias.sh
 #WORKDIR /home/superBits/projetos/coletivoJava/source/integracao/intMatrixChat/
 #RUN ./dependenciaEmbarcada.sh
 WORKDIR /home/superBits/superBitsDevOps
+<<<<<<< HEAD
 #RUN /bin/bash -e /home/superBits/superBitsDevOps/compilarTudo.sh
+=======
+RUN /bin/bash /home/superBits/superBitsDevOps/compilarTudo.sh
+>>>>>>> 8927f5e (Atualizacao automática)
 WORKDIR /home/superBits 
 
 #RUN sed -i 's/\r//g' /home/superBits/instalacao.sh
