@@ -60,3 +60,10 @@ for PROJETO in "${PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_FRAMEWORK_ORDEM[@]}"; do
 	PASTA_PROJETOS=${PASTAS_COLETIVO_JAVA_FW[$NOME_PASTA_PROJETO]}
 	atualizarProjeto $PASTA_PROJETOS $PROJETO;
 done
+
+cd /home/superBits/projetos/coletivoJava/source/SBProjetos/model_regras
+mvn -DskipTests=true clean install
+alerta "--Executando SBConcole"
+echo "java -jar /home/superBits/projetos/coletivoJava/source/SBProjetos/SBComandos/target/SBComandos-0.9.one-jar.jar" > /home/superBits/SBConsole.sh
+cd /home/superBits
+chmod +x ./SBConsole.sh

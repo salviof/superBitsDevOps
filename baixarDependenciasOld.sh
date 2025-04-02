@@ -61,13 +61,13 @@ cd $CAMINHO_SOURCE_COLETIVO/fw/FWColetivoJava
 #mvn clean install    -Dmaven.test.skip=true
 
 #alerta "Compilando model Regras do projeto"
-#cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/SBProjetos/model_regras
-#mvn -DskipTests=true clean install
+cd /home/superBits/projetos/coletivoJava/source/SBProjetos/model_regras
+mvn -DskipTests=true clean install
 
 
 
 #alerta "Compilando SBComandos"
-#cd /home/superBits/projetos/Super_Bits/source/SuperBits_FrameWork/SBProjetos/SBComandos
+#cd /home/superBits/projetos/coletivoJava/source/SBProjetos/SBComandos
 #mvn clean install    -Dmaven.test.skip=true
 #alerta "Compilando Módulo Controle de usuários padrão "
 #cd /home/superBits/projetos/Super_Bits/source/Controle_Usuario_Basico/
@@ -80,9 +80,10 @@ cd $CAMINHO_SOURCE_COLETIVO/fw/FWColetivoJava
 #mvn clean install    -Dmaven.test.skip=true
 #./empacotarModulo.sh
 
-
+cd /home/superBits/projetos/coletivoJava/source/SBProjetos/model_regras
+mvn -DskipTests=true clean install
 alerta "--Executando SBConcole"
-echo "java -jar /home/superBits/projetos/Super_Bits/source/SBProjetos/SBComandos/target/SBComandos-0.9.one-jar.jar" > /home/superBits/SBConsole.sh
+echo "java -jar /home/superBits/projetos/coletivoJava/source/SBProjetos/SBComandos/target/SBComandos-0.9.one-jar.jar" > /home/superBits/SBConsole.sh
 cd /home/superBits
 chmod +x ./SBConsole.sh
 
