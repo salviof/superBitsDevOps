@@ -8,9 +8,7 @@ PASTAS_COLETIVO_JAVA_FW=(
 ["PASTA_COLETIVO_JAVA_ERP"]="$CAMINHO_SOURCE_COLETIVO/erpColetivoJava"
 )
 
-  <groupId>br.org.coletivoJava.fw.api.erp.notificacoes</groupId>
-    <artifactId>SbErpNotificacoes</artifactId>
-    <name>NotificaçõesSB</name>
+
 declare -A PROJETOS_COLETIVO_JAVA_CORE
 PROJETOS_COLETIVO_JAVA_CORE=(
 ["MTFN"]="PASTA_COLETIVO_JAVA_DEPENDENCIAS_EXTERNAS_CORE"
