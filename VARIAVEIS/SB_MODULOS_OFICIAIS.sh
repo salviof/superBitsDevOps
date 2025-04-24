@@ -8,7 +8,9 @@ PASTAS_COLETIVO_JAVA_FW=(
 ["PASTA_COLETIVO_JAVA_ERP"]="$CAMINHO_SOURCE_COLETIVO/erpColetivoJava"
 )
 
-
+  <groupId>br.org.coletivoJava.fw.api.erp.notificacoes</groupId>
+    <artifactId>SbErpNotificacoes</artifactId>
+    <name>NotificaçõesSB</name>
 declare -A PROJETOS_COLETIVO_JAVA_CORE
 PROJETOS_COLETIVO_JAVA_CORE=(
 ["MTFN"]="PASTA_COLETIVO_JAVA_DEPENDENCIAS_EXTERNAS_CORE"
@@ -58,6 +60,7 @@ PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_PROJETO_ERP_COMPLETO=(
 ["SbErpTarefas"]="PASTA_COLETIVO_JAVA_ERP"
 ["SbErpTarefasClickup"]="PASTA_COLETIVO_JAVA_ERP"
 ["SbErpCRM"]="PASTA_COLETIVO_JAVA_ERP"
+["SbErpNotificacoes"]="PASTA_COLETIVO_JAVA_ERP"
 ["intAmazonShortMessageService"]="PASTA_COLETIVO_JAVA_INTEGRACOES"
 ["intWhatsapp"]="PASTA_COLETIVO_JAVA_INTEGRACOES"
 ["intMatrixChat"]="PASTA_COLETIVO_JAVA_INTEGRACOES"
@@ -78,5 +81,5 @@ PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_PROJETO_ERP_COMPLETO=(
 ["intQrcodePix"]="PASTA_COLETIVO_JAVA_INTEGRACOES"
 )
 
-PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_PROJETO_ERP_COMPLETO_ORDEM=("SbErpCodigoPostalBRRepublicaVirtual" "SbErpCodigoPostalBRApiFreeRedundante" "SbErpCodigoPostalImportador" "SBErpGatewayPagamento" "SBErpIntegracaoSistemas" "SbErpTarefas" "SbErpTarefasClickup" "SbErpCRM" "intAmazonShortMessageService" "intGatewayPgtoRede" "intMautic" "intRocketChat" "intERPRestful" "intERPRestfulTest" "intWordpress" "intMav" "intGoogleCalendar" "intClickup" "SbErpChat" "SbErpChatMatrixOrg" "SbErpContaPagarReceber" "intGalaxPay" "intQrcodePix" "intMatrixChat" "intWhatsapp" "SBErpServicoComunicacao")
+PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_PROJETO_ERP_COMPLETO_ORDEM=("SbErpCodigoPostalBRRepublicaVirtual" "SbErpCodigoPostalBRApiFreeRedundante" "SbErpCodigoPostalImportador" "SBErpGatewayPagamento" "SBErpIntegracaoSistemas" "SbErpTarefas" "SbErpTarefasClickup" "SbErpCRM" "intAmazonShortMessageService" "intGatewayPgtoRede" "intMautic" "intRocketChat" "intERPRestful" "intERPRestfulTest" "intWordpress" "intMav" "intGoogleCalendar" "intClickup" "SbErpChat" "SbErpChatMatrixOrg" "SbErpContaPagarReceber" "intGalaxPay" "intQrcodePix" "intMatrixChat" "intWhatsapp" "SBErpServicoComunicacao" "SbErpNotificacoes")
 
