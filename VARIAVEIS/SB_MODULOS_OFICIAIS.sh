@@ -32,7 +32,7 @@ PROJETOS_COLETIVO_JAVA_CORE=(
 ["FWColetivoJava"]="PASTA_COLETIVO_JAVA_FRAMEWORK"
 )
 PROJETOS_COLETIVO_JAVA_CORE_ORDEM=("MTFN" "reflections" "SBApiCore" "apiComunicacao" 
- "SbErpCodigoPostalBR" "SBCore" "SBTeste" "util" "SBPersistencia" "SBServlets" "SBRestClientTestes" "SBRestClient"  "SBAcessosModel"
+ "SbErpCodigoPostalBR" "SBCore" "SBTeste" "SBTestesWebApp"  "util" "SBPersistencia" "SBServlets" "SBRestClientTestes" "SBRestClient"  "SBAcessosModel"
  "SBErpGatewayPagamento" "SBErpIntegracaoSistemas" "SBWebPaginas" "FWColetivoJava")
 declare -A PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_FRAMEWORK
 PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_FRAMEWORK=(
