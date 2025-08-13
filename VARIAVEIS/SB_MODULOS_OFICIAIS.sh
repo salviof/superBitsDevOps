@@ -1,6 +1,6 @@
 declare -A PASTAS_COLETIVO_JAVA_FW
 PASTAS_COLETIVO_JAVA_FW=(
-	["PASTA_COLETIVO_JAVA_FERRAMENTAS"]="$CAMINHO_SOURCE_COLETIVO"
+["PASTA_COLETIVO_JAVA_FERRAMENTAS"]="$CAMINHO_SOURCE_COLETIVO"
 ["PASTA_COLETIVO_JAVA_FRAMEWORK"]="$CAMINHO_SOURCE_COLETIVO/fw"
 ["PASTA_COLETIVO_JAVA_FRAMEWORK_UTIL"]="$CAMINHO_SOURCE_COLETIVO/fw/util"
 ["PASTA_COLETIVO_JAVA_DEPENDENCIAS_EXTERNAS_CORE"]="$CAMINHO_SOURCE_COLETIVO"
@@ -62,6 +62,7 @@ PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_PROJETO_ERP_COMPLETO=(
 ["SbErpNotificacoes"]="PASTA_COLETIVO_JAVA_ERP"
 ["SbErpTipoCanalMatrix"]="PASTA_COLETIVO_JAVA_ERP"
 ["SbErpTipoCanalEmail"]="PASTA_COLETIVO_JAVA_ERP"
+["SbErpContaPagarReceber"]="PASTA_COLETIVO_JAVA_ERP"
 ["intAmazonShortMessageService"]="PASTA_COLETIVO_JAVA_INTEGRACOES"
 ["intWhatsapp"]="PASTA_COLETIVO_JAVA_INTEGRACOES"
 ["intMatrixChat"]="PASTA_COLETIVO_JAVA_INTEGRACOES"
@@ -85,7 +86,7 @@ PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_PROJETO_ERP_COMPLETO=(
 ["intQrcodePix"]="PASTA_COLETIVO_JAVA_INTEGRACOES"
 )
 
-PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_PROJETO_ERP_COMPLETO_ORDEM=("SbErpCodigoPostalBRRepublicaVirtual" "SbErpCodigoPostalBRApiFreeRedundante" "SbErpCodigoPostalImportador" "SBErpGatewayPagamento" "SBErpIntegracaoSistemas" "SbErpTarefas" "SbErpTarefasClickup" "SbErpCRM" "intAmazonShortMessageService" "intGatewayPgtoRede" "intMautic" "intRocketChat" "intERPRestful" "intERPRestfulTest" "intWordpress" "intMav" "intGoogleCalendar" "intClickup" "SbErpChat" "SbErpChatMatrixOrg" "SbErpContaPagarReceber" "intGalaxPay" "intQrcodePix" "intMatrixChat" "intWhatsapp" "SBErpServicoComunicacao" "SbErpNotificacoes" "SbErpTipoCanalEmail" "SbErpTipoCanalMatrix" "intOllama" "SbErpIA" "SbErpIAOllama")
+PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_PROJETO_ERP_COMPLETO_ORDEM=("SbErpCodigoPostalBRRepublicaVirtual" "SbErpCodigoPostalBRApiFreeRedundante" "SbErpCodigoPostalImportador" "SBErpGatewayPagamento" "SBErpIntegracaoSistemas" "SbErpTarefas" "SbErpTarefasClickup" "SbErpCRM" "intAmazonShortMessageService" "intGatewayPgtoRede" "intMautic" "intRocketChat" "intERPRestful" "intERPRestfulTest" "intWordpress" "intMav" "intGoogleCalendar" "intClickup" "SbErpChat" "SbErpChatMatrixOrg" "SbErpContaPagarReceber" "intGalaxPay" "intQrcodePix" "intMatrixChat" "intWhatsapp" "SBErpServicoComunicacao" "SbErpNotificacoes" "SbErpTipoCanalEmail" "SbErpTipoCanalMatrix" "intOllama" "SbErpIA" "SbErpIAOllama","SbErpContaPagarReceber")
 
 
 

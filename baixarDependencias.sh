@@ -1,3 +1,4 @@
+git pull
 # Absolute path to this script. /home/user/bin/foo.sh
 echo "Identificando local de execução"
 SCRIPT=$(readlink -f $0)
