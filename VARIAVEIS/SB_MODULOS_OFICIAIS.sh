@@ -58,6 +58,7 @@ PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_PROJETO_ERP_COMPLETO=(
 ["SBErpIntegracaoSistemas"]="PASTA_COLETIVO_JAVA_ERP"
 ["SbErpTarefas"]="PASTA_COLETIVO_JAVA_ERP"
 ["SbErpTarefasClickup"]="PASTA_COLETIVO_JAVA_ERP"
+["SBErpContabil"]="PASTA_COLETIVO_JAVA_ERP"
 ["SbErpCRM"]="PASTA_COLETIVO_JAVA_ERP"
 ["SbErpNotificacoes"]="PASTA_COLETIVO_JAVA_ERP"
 ["SbErpTipoCanalMatrix"]="PASTA_COLETIVO_JAVA_ERP"
@@ -86,7 +87,7 @@ PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_PROJETO_ERP_COMPLETO=(
 ["intQrcodePix"]="PASTA_COLETIVO_JAVA_INTEGRACOES"
 )
 
-PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_PROJETO_ERP_COMPLETO_ORDEM=("SbErpCodigoPostalBRRepublicaVirtual" "SbErpCodigoPostalBRApiFreeRedundante" "SbErpCodigoPostalImportador" "SBErpGatewayPagamento" "SBErpIntegracaoSistemas" "SbErpTarefas" "SbErpTarefasClickup" "SbErpCRM" "intAmazonShortMessageService" "intGatewayPgtoRede" "intMautic" "intRocketChat" "intERPRestful" "intERPRestfulTest" "intWordpress" "intMav" "intGoogleCalendar" "intClickup" "SbErpChat" "SbErpChatMatrixOrg" "SbErpContaPagarReceber" "intGalaxPay" "intQrcodePix" "intMatrixChat" "intWhatsapp" "SBErpServicoComunicacao" "SbErpNotificacoes" "SbErpTipoCanalEmail" "SbErpTipoCanalMatrix" "intOllama" "SbErpIA" "SbErpIAOllama","SbErpContaPagarReceber")
+PROJETOS_COLETIVO_JAVA_DESENVOLVEDOR_PROJETO_ERP_COMPLETO_ORDEM=("SbErpCodigoPostalBRRepublicaVirtual" "SbErpCodigoPostalBRApiFreeRedundante" "SbErpCodigoPostalImportador" "SBErpGatewayPagamento" "SBErpIntegracaoSistemas" "SbErpTarefas" "SbErpTarefasClickup" "SbErpCRM" "intAmazonShortMessageService" "intGatewayPgtoRede" "intMautic" "intRocketChat" "intERPRestful" "intERPRestfulTest" "intWordpress" "intMav" "intGoogleCalendar" "intClickup" "SbErpChat" "SbErpChatMatrixOrg" "SbErpContaPagarReceber" "intGalaxPay" "intQrcodePix" "intMatrixChat" "intWhatsapp" "SBErpServicoComunicacao" "SbErpNotificacoes" "SbErpTipoCanalEmail" "SBErpContabil" "SbErpTipoCanalMatrix" "intOllama" "SbErpIA" "SbErpIAOllama","SbErpContaPagarReceber")
 
 
 
